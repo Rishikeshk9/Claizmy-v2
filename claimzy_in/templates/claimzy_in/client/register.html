@@ -1,0 +1,1105 @@
+{% load static %} {% block content %}
+
+<head>
+  <!-- Required meta tags-->
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+  <meta name="description" content="Colorlib Templates" />
+  <meta name="author" content="Colorlib" />
+  <meta name="keywords" content="Colorlib Templates" />
+
+  <link
+    rel="apple-touch-icon"
+    sizes="76x76"
+    href="{% static 'claimzy_in/img/apple-icon.png' %}"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    href="{% static 'claimzy_in/img/favicon.ico' %}"
+  />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <!-- Title Page-->
+  <title>Claimzy - Register</title>
+
+  <!-- Icons font CSS-->
+  <link
+    href="{% static 'claimzy_in/css/client/vendor/mdi-font/css/material-design-iconic-font.min.css' %}"
+    rel="stylesheet"
+    media="all"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous"
+  />
+  <!-- Font special for pages-->
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet"
+  />
+
+  <!-- Vendor CSS-->
+  <link
+    href="{% static 'claimzy_in/css/client/vendor/select2/select2.min.css' %}"
+    rel="stylesheet"
+    media="all"
+  />
+  <link
+    href="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.css' %}"
+    rel="stylesheet"
+    media="all"
+  />
+
+  <!-- Main CSS-->
+  <link
+    href="{% static 'claimzy_in/css/client/main2.css' %}"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <style>
+    .pricing .card {
+      border: none;
+      border-radius: 1rem;
+      transition: all 0.2s;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      background-image: linear-gradient(60deg, #fc6562, #ffd66f);
+    }
+
+    .pricing .card2 {
+      border: none;
+      border-radius: 1rem;
+      transition: all 0.2s;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+      margin: 20px;
+    }
+
+    .pricing hr {
+      margin: 1.5rem 0;
+    }
+
+    .pricing .card-title {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      letter-spacing: 0.1rem;
+      font-weight: bold;
+    }
+
+    .pricing .card-price {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .pricing .card-price .period {
+      font-size: 0.8rem;
+    }
+
+    .pricing ul li {
+      margin-bottom: 1rem;
+    }
+
+    .pricing .text-muted {
+      opacity: 0.7;
+    }
+
+    .pricing .btn {
+      font-size: 80%;
+      border-radius: 5rem;
+      letter-spacing: 0.1rem;
+      font-weight: bold;
+      padding: 1rem;
+      opacity: 0.7;
+      transition: all 0.2s;
+    }
+
+    /* Hover Effects on Card */
+
+    @media (min-width: 992px) {
+      .pricing .card:hover {
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+      }
+      .pricing .card2:hover {
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+      }
+      .pricing .card:hover .btn {
+        opacity: 1;
+      }
+    }
+
+    #loader2 {
+      position: fixed; /* Sit on top of the page content */
+      display: none; /* Hidden by default */
+      width: 100%; /* Full width (cover the whole page) */
+      height: 100%; /* Full height (cover the whole page) */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+      z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+      cursor: pointer; /* Add a pointer on hover */
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  </style>
+</head>
+<body>
+  <div id="loader2">
+    <img
+      style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      "
+      src="{% static 'claimzy_in/anim/payment-successful.gif' %}"
+      class="m-auto"
+      width="128px"
+      height="128px"
+    />
+  </div>
+  <div class="page-wrapper bg-gra-02 p-t-30 p-b-100 font-poppins">
+    <div class="wrapper wrapper--w680">
+      <div class="card card-4">
+        <div class="card-body">
+          <a href="{% url 'claimzy' %}"
+            ><img
+              id="float-right"
+              src="{% static 'claimzy_in/img/logo-dark.png' %}"
+              alt="claim"
+              height="45"
+              class="p-1"
+              alt="Claimzy"
+          /></a>
+          <div class="pricing">
+            <div class="container text-center">
+              {% if Plan == 'silver' %}
+              <!-- Free Tier -->
+              <div class="card card2 mb-5 mb-lg-0">
+                <div class="card-body">
+                  <h5 class="card-title text-muted text-uppercase text-center">
+                    SILVER
+                  </h5>
+                  <h6 class="card-price text-center">
+                    ₹999/-<span class="period"></span>
+                  </h6>
+                  <hr />
+                  <ul class="fa-ul">
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Liquid/Water Damage
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Cracked/Broken Screen
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Unresponsive/Dead Touchpad
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Broken Charging Port
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Faulty Earphone Jack
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span>2
+                      Years Support
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              {% elif Plan == 'gold' %}
+              <!-- Free Tier -->
+
+              <div class="card mb-5 mb-lg-0 blue">
+                <div class="card-body">
+                  <h5 class="card-title text-muted text-uppercase text-center">
+                    GOLD
+                  </h5>
+                  <h6 class="card-price text-center">
+                    ₹1999/-<span class="period"></span>
+                  </h6>
+                  <hr />
+                  <ul class="fa-ul">
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Liquid/Water Damage
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Cracked/Broken Screen
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Unresponsive/Dead Touchpad
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Broken Charging Port
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span
+                      >Faulty Earphone Jack
+                    </li>
+                    <li>
+                      <span class="fa-li"><i class="fas fa-check"></i></span>2
+                      Years Support
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {%else%}
+              <!-- Free Tier -->
+
+              <div class="card mb-5 mb-lg-0">
+                <div class="card-body">
+                  <h5 class="card-title text-muted text-uppercase text-center">
+                    SORRY
+                  </h5>
+                  <h6 class="card-price text-center">
+                    Invalid Plan<span class="period"></span>
+                  </h6>
+                  <hr />
+                  <ul class="fa-ul"></ul>
+                </div>
+              </div>
+
+              {%endif%}
+            </div>
+          </div>
+          <h2 class="title">User Details</h2>
+          <form id="data" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label"
+                    ><span style="color: red">*</span>Full Name</label
+                  >
+                  <input
+                    id="uname "
+                    class="input--style-4"
+                    type="text"
+                    name="name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label"
+                    ><span style="color: red">*</span>Mobile Number</label
+                  >
+                  <input
+                    id="mob"
+                    class="input--style-4"
+                    type="text"
+                    pattern="\d*"
+                    maxlength="10"
+                    minlength="10"
+                    name="mob"
+                    maxlength="10"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="input-group">
+              <label class="label"
+                ><span style="color: red">*</span>Address Line 1</label
+              >
+              <div class="rs-select2 js-select-simple select--no-search">
+                <input
+                  id="uaddress"
+                  class="input--style-4"
+                  type="text"
+                  name="address"
+                  required
+                  cols="40"
+                  rows="5"
+                />
+              </div>
+            </div>
+            <div class="input-group">
+              <label class="label"
+                ><span style="color: red">*</span>Address Line 2</label
+              >
+              <div class="rs-select2 js-select-simple select--no-search">
+                <input
+                  id="uaddress"
+                  class="input--style-4"
+                  type="text"
+                  name="address2"
+                  required
+                  cols="40"
+                  rows="5"
+                />
+              </div>
+            </div>
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label"
+                    ><span style="color: red">*</span>City</label
+                  >
+                  <input
+                    class="input--style-4"
+                    type="text"
+                    name="city"
+                    cols="40"
+                    required
+                    rows="5"
+                  />
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label"
+                    ><span style="color: red">*</span>Pincode</label
+                  >
+                  <input
+                    class="input--style-4"
+                    type="text"
+                    name="pincode"
+                    cols="40"
+                    required
+                    rows="5"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label"
+                    ><span style="color: red">*</span>State</label
+                  >
+                  <div class="rs-select2 js-select-simple select--no-search">
+                    <select
+                      required
+                      name="state"
+                      id="state"
+                      class="form-control"
+                    >
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Andaman and Nicobar Islands">
+                        Andaman and Nicobar Islands
+                      </option>
+                      <option value="Arunachal Pradesh">
+                        Arunachal Pradesh
+                      </option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chandigarh">Chandigarh</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Dadar and Nagar Haveli">
+                        Dadar and Nagar Haveli
+                      </option>
+                      <option value="Daman and Diu">Daman and Diu</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Lakshadweep">Lakshadweep</option>
+                      <option value="Puducherry">Puducherry</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jammu and Kashmir">
+                        Jammu and Kashmir
+                      </option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra" selected="selected">
+                        Maharashtra
+                      </option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr style="border-top: 1px solid rgb(196, 185, 185)" />
+            <br />
+
+            <h2 class="title">Mobile Details</h2>
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label">Mobile Brand</label>
+                  <div class="rs-select2 js-select-simple select--no-search">
+                    <select
+                      class="form-control"
+                      id="brand"
+                      name="brand"
+                      required
+                    >
+                      <option selected="selected">{{Brand}}</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label"
+                    ><span style="color: red">*</span>Model</label
+                  >
+                  <input
+                    class="input--style-4"
+                    type="text"
+                    name="model"
+                    cols="40"
+                    required
+                    rows="5"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="label"
+                ><span style="color: red">*</span>#IMEI
+                <span style="color: rgb(252, 188, 11)">
+                  &nbsp; (Dial *#06#)</span
+                >
+              </label>
+              <div class="rs-select2 js-select-simple select--no-search">
+                <input
+                  id="imi"
+                  class="input--style-4"
+                  type="tel"
+                  minlength="16"
+                  maxlength="16"
+                  name="imei"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label"
+                    ><span style="color: red">*</span>Price on Invoice</label
+                  >
+                  <span style="color: red" id="price-note"></span>
+                  <div class="rs-select2 js-select-simple select--no-search">
+                    <input
+                      id="poi"
+                      class="input--style-4"
+                      type="number"
+                      name="price"
+                      required
+                    />
+
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label class="label"
+                    ><span style="color: red">*</span>Invoice Date</label
+                  >
+                  <div class="input-group-icon">
+                    <input
+                      class="input--style-4 js-datepicker"
+                      type="text"
+                      name="date"
+                      required
+                    />
+                    <i
+                      class="zmdi zmdi-calendar-note input-icon js-btn-calendar"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label for="invoice-pic" class="label"
+                    ><span style="color: red">*</span>Invoice Photo</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control-file"
+                    name="invoice-pic"
+                    id="invoice-pic"
+                    onclick="snapshot();"
+                    required
+                    accept="image/*"
+                    capture
+                  />
+                  <img width="120px" id="invoice-img" />
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div class="input-group">
+                  <label for="imei" class="label"
+                    ><span style="color: red">*</span>Device screen with
+                    #IMEI</label
+                  >
+                  <input
+                    type="file"
+                    id="imei"
+                    name="imei-img"
+                    onclick="snapshot();"
+                    accept="image/*"
+                    capture
+                    required
+                  />
+                  <!-- opens my hard drive and expects input from hard drive-->
+                  <img width="120px" id="imei-img" />
+                </div>
+              </div>
+            </div>
+
+            <input
+              id="plan-title"
+              type="text"
+              style="opacity: 0"
+              name="plan"
+              value="{{Plan}}"
+            />
+            <input
+              type="text"
+              style="opacity: 0"
+              id="amount"
+              name="amount"
+              value="{% if Plan == 'silver' %}
+                        999
+                        {% elif Plan == 'gold' %}
+                        1999
+                        {%endif%}"
+            />
+
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <label for="back" class="label"
+                    ><span style="color: red">*</span>Back</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control-file"
+                    name="back"
+                    id="back"
+                    onclick="snapshot();"
+                    accept="image/*"
+                    capture
+                    required
+                  />
+                  <img width="120px" id="back-img" />
+                </div>
+              </div>
+              <div class="col-2">
+                <div class="input-group">
+                  <label for="front" class="label"
+                    ><span style="color: red">*</span>Front</label
+                  >
+                  <input
+                    type="file"
+                    class="form-control-file"
+                    name="front"
+                    id="front"
+                    onclick="snapshot();"
+                    accept="image/*"
+                    capture
+                    required
+                  />
+                  <img width="120px" id="front-img" />
+                </div>
+              </div>
+            </div>
+
+            <div class="row row-space">
+              <div class="col-2">
+                <div class="input-group">
+                  <input type="checkbox" class="inline" required name="terms" />
+                  I accept the
+                  <a
+                    href="{%url 'terms' %}"
+                    style="color: blue; text-decoration: none"
+                    target="_blank"
+                    ><u>Terms and Conditions</u>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-2">
+                <div class="input-group">
+                  <button
+                    class="btn btn--radius-2 btn--blue"
+                    id="reg-btn"
+                    type="submit"
+                  >
+                    Make Payment
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="loader" style="display: none">
+              <div>
+                <img
+                  style="margin-left: 35%"
+                  src="{% static 'claimzy_in/anim/reload.gif' %}"
+                  width="166px"
+                  height="166px"
+                />
+                <figcaption style="margin-left: 40%">Uploading Data</figcaption>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="canvas1" style="display: none" width="200" height="200"></canvas>
+
+  <canvas id="canvas2" style="display: none" width="200" height="200"></canvas>
+
+  <canvas id="canvas3" style="display: none" width="200" height="200"></canvas>
+
+  <canvas id="canvas4" style="display: none" width="200" height="200"></canvas>
+
+  <!-- Jquery JS-->
+  <script src="{% static 'claimzy_in/css/client/vendor/jquery/jquery.min.js' %}"></script>
+  <!-- Vendor JS-->
+  <script src="{% static 'claimzy_in/css/client/vendor/select2/select2.min.js' %}"></script>
+  <script src="{% static 'claimzy_in/css/client/vendor/datepicker/moment.min.js' %}"></script>
+  <script src="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.js' %}"></script>
+  <!-- Main JS-->
+  <script src="{% static 'claimzy_in/css/client/js/global.js' %}"></script>
+  <script src="{% static 'claimzy_in/js/plugins/bootstrap-notify.js' %}"></script>
+  <script src="{% static 'claimzy_in/js/plugins/jic.min.js' %}"></script>
+</body>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+  function dataURItoBlob(dataURI) {
+    // convert base64 to raw binary data held in a string
+    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+    var byteString = atob(dataURI.split(",")[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+
+    // write the bytes of the string to an ArrayBuffer
+    var ab = new ArrayBuffer(byteString.length);
+
+    // create a view into the buffer
+    var ia = new Uint8Array(ab);
+
+    // set the bytes of the buffer to the correct values
+    for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+
+    // write the ArrayBuffer to a blob, and you're done
+    var blob = new Blob([ab], { type: mimeString });
+    return blob;
+  }
+
+  var amount = document.getElementById("amount").value - 850;
+  var options1 = {
+    key: "rzp_live_nIDSu6ZA7x9y5m",
+    amount: amount, // 2000 paise = INR 20
+    name: "Claimzy",
+    description: "Subscription Plan Payment",
+    image: "{% static 'claimzy_in/img/logo-dark.png' %}",
+    handler: function (response) {
+      alert("" + JSON.stringify(response));
+      // do an ajax call to backend and capture and verify the payment then
+      //redirect to payment success page.
+      //{"razorpay_payment_id":"pay_F6wpwogVLEUPYk"}
+      var p_id = response.razorpay_payment_id;
+      var formData = new FormData();
+      var mob = $("#mob").val();
+      var imei = $("#imi").val();
+      formData.append("amt", amount);
+      formData.append("paymentid", p_id);
+      formData.append("mobile", mob);
+      formData.append("imei", imei);
+      $.ajax({
+        type: "POST",
+        url: '{% url "capture-payment" %}',
+        data: formData,
+        success: function (xml) {
+          alert("Payment " + xml + " Data will be uploaded now!");
+
+          var dataURL = document
+            .getElementById("canvas1")
+            .toDataURL("image/png");
+          var dataURL2 = document
+            .getElementById("canvas2")
+            .toDataURL("image/png");
+          var dataURL3 = document
+            .getElementById("canvas3")
+            .toDataURL("image/png");
+          var dataURL4 = document
+            .getElementById("canvas4")
+            .toDataURL("image/png");
+
+          var file1 = dataURItoBlob(dataURL);
+          var file2 = dataURItoBlob(dataURL2);
+          var file3 = dataURItoBlob(dataURL3);
+          var file4 = dataURItoBlob(dataURL4);
+
+          var formElement = document.querySelector("form#data");
+          var formData = new FormData(formElement);
+          formData.delete("invoice-pic");
+          formData.delete("imei-img");
+          formData.delete("front");
+          formData.delete("back");
+
+          formData.append(
+            "invoice-pic",
+            file1,
+            "" + formData.get("imei") + ".png"
+          );
+          formData.append(
+            "imei-img",
+            file2,
+            "" + formData.get("imei") + ".png"
+          );
+          formData.append("front", file3, "" + formData.get("imei") + ".png");
+          formData.append("back", file4, "" + formData.get("imei") + ".png");
+
+          $.ajax({
+            type: "POST",
+            url: '{% url "upload-data" %}',
+            data: formData,
+            beforeSend: function () {
+              // Show image container
+              $("#loader").show();
+            },
+            success: function (xml) {
+              $("#loader").hide();
+              $("#loader2").show();
+              alert("Device Registered Succesfully");
+              setTimeout(function () {
+                window.location.href = '{% url "claimzy-home" %}'; //will redirect to your blog page (an ex: blog.html)
+              }, 4000); //will call the function after 2 secs.
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+          });
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+      });
+    },
+    error: function (resp) {
+      alert(resp);
+    },
+    redirect: true,
+
+    theme: {
+      color: "rgba(0, 188, 212, 0.7)",
+    },
+  };
+
+  var rzp2 = new Razorpay(options1);
+
+  $("form#data").submit(function (e) {
+    e.preventDefault();
+
+    rzp2.open();
+  });
+</script>
+<script type="text/javascript">
+  var video = document.querySelector("#vid");
+  var canvas = document.querySelector("#canvas");
+  var ctx = canvas.getContext("2d");
+  var localMediaStream = null;
+
+  var onCameraFail = function (e) {
+    console.log("Camera did not work.", e);
+  };
+
+  function snapshot() {
+    if (localMediaStream) {
+      ctx.drawImage(video, 0, 0); // This draws the captured image on the canvas
+    }
+    document.getElementById("SubmitWebCam").style.display = "block";
+  }
+
+  navigator.getUserMedia =
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia;
+
+  window.URL = window.URL || window.webkitURL;
+
+  navigator.getUserMedia(
+    { video: true },
+    function (stream) {
+      video.src = window.URL.createObjectURL(stream);
+      video.play();
+      localMediaStream = stream;
+    },
+    onCameraFail
+  );
+</script>
+
+<script>
+  $(document).ready(function () {
+    $(document).on("change", ".btn-file :file", function () {
+      var input = $(this),
+        label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+      input.trigger("fileselect", [label]);
+    });
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $("#invoice-img").attr("src", e.target.result);
+
+          var image = new Image();
+          image.onload = function () {
+            var canvas = document.getElementById("canvas1");
+            var context = canvas.getContext("2d");
+            canvas.width = image.width / 4;
+            canvas.height = image.height / 4;
+            context.drawImage(
+              image,
+              0,
+              0,
+              image.width,
+              image.height,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+          };
+          image.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#invoice-pic").change(function () {
+      readURL(this);
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $(document).on("change", ".btn-file :file", function () {
+      var input = $(this),
+        label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+      input.trigger("fileselect", [label]);
+    });
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          var image = new Image();
+
+          $("#imei-img").attr("src", e.target.result);
+
+          image.onload = function () {
+            var canvas = document.getElementById("canvas2");
+            var context = canvas.getContext("2d");
+            canvas.width = image.width / 4;
+            canvas.height = image.height / 4;
+            context.drawImage(
+              image,
+              0,
+              0,
+              image.width,
+              image.height,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+          };
+          image.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#imei").change(function () {
+      readURL(this);
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $(document).on("change", ".btn-file :file", function () {
+      var input = $(this),
+        label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+      input.trigger("fileselect", [label]);
+    });
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $("#back-img").attr("src", e.target.result);
+
+          var image = new Image();
+
+          image.onload = function () {
+            var canvas = document.getElementById("canvas3");
+            var context = canvas.getContext("2d");
+            canvas.width = image.width / 4;
+            canvas.height = image.height / 4;
+            context.drawImage(
+              image,
+              0,
+              0,
+              image.width,
+              image.height,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+          };
+          image.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#back").change(function () {
+      readURL(this);
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $(document).on("change", ".btn-file :file", function () {
+      var input = $(this),
+        label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+      input.trigger("fileselect", [label]);
+    });
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $("#front-img").attr("src", e.target.result);
+
+          var image = new Image();
+
+          image.onload = function () {
+            var canvas = document.getElementById("canvas4");
+            var context = canvas.getContext("2d");
+            canvas.width = image.width / 4;
+            canvas.height = image.height / 4;
+            context.drawImage(
+              image,
+              0,
+              0,
+              image.width,
+              image.height,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+          };
+          image.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#front").change(function () {
+      readURL(this);
+    });
+  });
+</script>
+
+<script>
+  $("#poi").on("focusout", function () {
+    var value = $("#poi").val();
+    var plan = $("#plan-title").val();
+
+    if (value > 20000 || value < 5000) {
+      if (plan == "silver") {
+        $("#price-note").html("Price Invalid for Silver Plan.");
+
+        $("#poi").val("");
+      }
+    }
+    if (value <= 20000 || value > 40000) {
+      if (plan == "gold") {
+        $("#price-note").html("Price Invalid for Gold Plan.");
+
+        $("#poi").val("");
+      }
+    }
+  });
+
+  $("#poi").on("focusin", function () {
+    $("#price-note").html("");
+  });
+</script>
+{% endblock content %}

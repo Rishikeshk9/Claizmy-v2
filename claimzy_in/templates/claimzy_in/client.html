@@ -1,0 +1,273 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'claimzy_in/img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'claimzy_in/img/favicon.ico' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
+  <title>
+    Claimzy
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="{% static 'claimzy_in/css/client/loader.css' %}"  rel="stylesheet" type="text/css"  />
+    <link href="https://fonts.googleapis.com/css?family=Alata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap" rel="stylesheet">
+    <link href="{% static 'claimzy_in/css/client/slick-theme.css' %}"  rel="stylesheet" type="text/css"  />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+    <link href="{% static 'claimzy_in/css/client/main.css' %}"  rel="stylesheet" type="text/css"  />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.js"></script>
+           
+    <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<style>
+
+
+
+@media only screen and (max-width: 991px) {
+  .invis{
+      display: none;
+  }}
+
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+</style>
+  </head>
+<body  >
+  
+   
+
+  <div class=" col-md-12 invis" style="z-index: 1; height:30px;background-color:#000;width:100%;">
+    <div class=" container  " style=" height:30px;background-color:#000;width:100%;text-align: center ">
+    
+        
+        <div class="col-md-1 text-center" style="height:30px;float:left;color:white; font-family: poppins;font-size:15px;border-right:1px solid #fff; padding-top:3px;"><a href="https://www.facebook.com/claim.zy" target="_blank"><i class="fab fa-facebook   white-text" style="color:#fff" ></i></a> </div> 
+        
+        <div class="col-md-1 text-center" style="height:30px;float:left;color:white; font-family: poppins;font-size:15px;border-right:1px solid #fff; padding-top:3px;"><a href="https://twitter.com/ClaimZy_" target="_blank"><i class="fab fa-twitter  white-text" style="color:#fff" ></i></a> </div> 
+        
+        <div class="col-md-1 text-center" style="height:30px;float:left;color:white; font-family: poppins;font-size:15px; padding-top:3px;"><a href="https://instagram.com/claimzy.in?igshid=1y1jwox2ch8aj" target="_blank"><i class="fab fa-instagram white-text" style="color:#fff" ></i></a> </div> 
+        
+         <div class="col-md-2 text-center" style="height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px;border-left:1px solid #fff;padding-top:5px;"><a href="{% url 'refunds' %}" style="color:white;text-decoration:none"><i class="fas fa-money-bill-alt"style="color:#fff" ></i>&nbsp;&nbsp;Refund Policy</a></div>
+       
+         <div class="col-md-2 text-center" style=" display: inline-block;height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px;border-left:1px solid #fff;padding-top:5px;"><a href="{%url 'terms' %}" style="color:white;text-decoration:none"><i class="fas fa-star"style="color:#FFF" ></i>&nbsp;&nbsp;Terms of Service</a></div>
+        <div class="col-md-2 text-center " style="height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px; padding-top:5px;"><a href="{%url 'privacy' %}" style="color:white;text-decoration:none"><i class="fas fa-exclamation-circle"style="color:#FFF" ></i>&nbsp;&nbsp;Privacy Policy</a></div>
+        
+        
+    </div>
+    
+    </div>
+ 
+  <nav class="navbar navbar-expand-md sticky-top navbar-light   scrolling-navbar " style="background: white; ">
+    <a class=" navbar-brand " style="top: 0px;">
+      <img id="navbar-img" src="{% static 'claimzy_in/img/logo-dark.png' %}" alt="claim"  height="45"  class="  p-1 " alt="Claim Now">
+       
+  </a> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" id="about" data-toggle="collapse" data-target=".navbar-collapse" href="#">ABOUT<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn-buy" id="plans"  href="#ex1" rel="modal:open" >PLANS</a>
+        </li> 
+        <a class="navbar-brand d-none" href="https://ibb.co/0Dch6tV">
+            <img src="https://i.ibb.co/0Dch6tV/claim.png" alt="claim"  height="200"  class="m-0 p-0 claim-brand" alt="Claim Now">
+            <div style="font-family: 'Pacifico', cursive;" class="centered my-4"><h4>Claim Now</h4> </div>
+        </a>
+         
+        <li class="nav-item">
+            <a class="nav-link" id="contact" href="#">CONTACT</a>
+          </li> 
+          
+        <li class="nav-item">
+            <a class="nav-link" id="account" href="{%url 'login' %}">SIGN IN</a>
+        </li> 
+         
+      </ul>
+     
+    </div>
+  </nav>
+<script> 
+</script>
+  <!--Changes-->
+  <div class="black grey-bg d-none" id="scene"   >
+      <div data-depth="0.2" class="centered mobil"  height="350"></div>
+  </div>
+   
+
+  
+  <div   class="full-height d-none"> </div>
+  
+    {% block content %}
+
+    {% endblock %}
+ 
+    <div class="container contact-section">
+      <div class="  text-center   text-light py-4"><h3 class="captionsBlack"><span>Reach out to us</span></h3></div>
+        <!-- Buttons-->
+        <div class="row text-center my-4">
+          <div class="col-md-4">
+            <button type="button" class="btn btn-warning btn-circle btn-md" style="   width: 50px; 
+            height: 50px; 
+            padding: 7px 10px; 
+            border-radius: 25px; 
+            font-size: 10px; 
+            text-align: center; "><i class="fas fa-phone" style="font-size: large;"></i></button> 
+
+            <p>+91 8181 040 488</p>
+            <p class="mb-md-0">Mon - Sat, 10:00-18:00</p>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class="btn btn-warning btn-circle btn-md" style="   width: 50px; 
+            height: 50px; 
+            padding: 7px 10px; 
+            border-radius: 25px; 
+            font-size: 10px; 
+            text-align: center; "><i class="fas fa-map-marker-alt" style="font-size: large;"></i></button> 
+
+            <p>504, Shreeniwas Westside County, D- wing, Pimple Gurav, Pune- 411061</p>
+           </div>
+          <div class="col-md-4">
+            <button type="button" class="btn btn-warning btn-circle btn-md" style="   width: 50px; 
+            height: 50px; 
+            padding: 7px 10px; 
+            border-radius: 25px; 
+            font-size: 10px; 
+            text-align: center; "><i class="fas fa-envelope"  style="font-size: large;" ></i></button> 
+
+            <p>info@claimzy.in</p>
+           </div>
+        </div>
+      
+    </div>
+
+    
+    <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Shreeniwas%20Westside%20County%2C%20D-%20wing%2C%20Flat%20No-%20504%2C%20Pimple%20Gurav%2C%20Pune-%20411061&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.crocothemes.net"></a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div>
+    <div class="spacer s2  "> </div> 
+    <div id="trigger7" class=" "></div>   
+    <!-- Footer -->
+<footer class="page-footer font-small black pt-4"  >
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+ 
+        <a class=" footer-brand m-auto"  >
+          <img class="" src="{% static 'claimzy_in/img/logo-alt.png' %}" alt="claim"  height="70"  style="position: relative; top: -74px;" class="  p-1 " >
+           
+      </a> 
+       
+    </div>
+    <div class="row my-4"  style="position: relative; top: -44px;" > 
+
+      <div class="m-auto">
+          <!-- Facebook -->
+          <a class="fb-ic" href="https://www.facebook.com/claim.zy" target="_blank">
+            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic" href="https://twitter.com/ClaimZy_" target="_blank">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+           
+      
+          <!--Instagram-->
+          <a class="ins-ic" href="https://instagram.com/claimzy.in?igshid=1y1jwox2ch8aj" target="_blank">
+            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+          </a>
+          
+        </div>
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  
+  <div  style="position: relative; top: -44px;" >
+  <!-- Footer Links -->
+  <div class="col-md-4 text-center  py-3 " style="height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px; padding-top:5px;"><a href="{% url 'refunds' %}" style="color:white;text-decoration:none"><i class="fas fa-money-bill-alt"style="color:#fff" ></i>&nbsp;&nbsp;Refund Policy</a></div>
+       
+  <div class="col-md-4 text-center  py-3 " style=" display: inline-block;height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px; padding-top:5px;"><a href="{%url 'terms' %}" style="color:white;text-decoration:none"><i class="fas fa-star"style="color:#FFF" ></i>&nbsp;&nbsp;Terms of Service</a></div>
+ <div class="col-md-4 text-center  py-3 " style="height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px; padding-top:5px;"><a href="{%url 'privacy' %}" style="color:white;text-decoration:none"><i class="fas fa-exclamation-circle"style="color:#FFF" ></i>&nbsp;&nbsp;Privacy Policy</a></div>
+ 
+  <!-- Copyright -->
+  <div class="footer-copyright text-center  pt-5 col-md-12">Developed with <i class="fas fa-heart " style="color: red;"></i> by
+    <a href="https://supersapiens.in"  style="color: yellow;">Supersapiens</a>
+  </div>
+</div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+</body>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+
+<script src="{% static 'claimzy_in/js/client/pace.js' %}"></script>
+<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/velocity-animate@2.0/velocity.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.3/velocity.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.js"></script>
+<script src="https://cdn.rawgit.com/leafo/sticky-kit/v1.1.2/jquery.sticky-kit.min.js"></script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="{% static 'claimzy_in/js/client/jquery.backstretch.js' %}"></script>
+
+
+<script src="{% static 'claimzy_in/js/client/main.js' %}"></script>
+
+ 
+<script>
+   
+
+  </script>
+</html>

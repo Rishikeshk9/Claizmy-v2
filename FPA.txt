@@ -1,0 +1,8 @@
+External I/Ps        EI - 45 * 4 = 180
+External Outputs     EO - 17 * 5 = 85
+External Inquiries   EQ - 12 * 4 = 48
+Internal Files       ILF- 8 * 10 = 80
+External Interfaces  EIF- 4 * 7  = 28
+
+T.Function Points    FP= 411
+

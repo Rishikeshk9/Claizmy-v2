@@ -1,0 +1,518 @@
+{% extends "claimzy_in/base.html" %} {% load static %} {% block content %}
+
+<div class="panel-header panel-header-sm"></div>
+<div class="content">
+  <div class="row">
+    {% if user.is_staff %} {% endif%} {% if user.is_superuser %}
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Registered Customers</h4>
+          <p class="category"></p>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table" id="claims-table2">
+              <thead class="text-primary">
+                <th class="text-left">#</th>
+                <th class="text-left">Name</th>
+                <th class="text-left">Address</th>
+
+                <th class="text-right">Mobile Number</th>
+                <th class="text-right">Registered On</th>
+                <th class="text-right">
+                  {% if user.is_superuser %} Action {% endif %}
+                </th>
+              </thead>
+              <tbody>
+                {% for usercust in Cust %}
+                <tr>
+                  <td class="text-left">
+                    <strong>{{usercust.id}}</strong>
+                  </td>
+                  <td class="text-left">
+                    <a
+                      href="http://127.0.0.1:8000/profile-customer?id={{ usercust.id }}"
+                      >{{usercust.name}}
+                    </a>
+                  </td>
+                   <td class="text-left">{{usercust.address}},{{usercust.addresstwo}},{{usercust.city}},{{usercust.state}}</td>
+
+                  <td class="text-right">{{usercust.mob}}</td>
+                  <td class="text-right">{{usercust.date_joined}}</td>
+                  <td class="text-right">
+                    {% if request.user.is_superuser %}
+                    <a
+                      name="cus_id"
+                      value="{{usercust.id}}"
+                      onclick='deleteFn("{{usercust.id}}")'
+                      class="btn delete-btn btn-success text-uppercase"
+                      >Delete</a
+                    >
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endif%} {% if Vendor %}
+
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">
+            Registered Devices
+            <span
+              ><a
+                href="{% url 'device-register' %}"
+                class="button float-right btn btn-success m-auto"
+                style="
+                  font-size: 80%;
+                  border-radius: 5rem;
+                  letter-spacing: 0.1rem;
+
+                  transition: all 0.2s;
+                "
+              >
+                + Add New Device</a
+              >
+            </span>
+          </h4>
+          <p class="category"></p>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive" id="claims-table2">
+            <table class="table">
+              <thead class="text-primary">
+                <th class="text-left">Device ID</th>
+                <th class="text-center">Plan</th>
+                <th class="text-center">Brand</th>
+                <th class="text-center">Model</th>
+                <th class="text-center">#IMEI</th>
+                <th class="text-center">Registered On</th>
+                <th class="text-right">Status</th>
+              </thead>
+              <tbody>
+                {% for dvc in Devices %}
+
+                <tr>
+                  <td class="text-left">{{dvc.id}}</td>
+                  <td class="text-center">{{dvc.plan}}</td>
+                  <td class="text-center">{{dvc.brand}}</td>
+                  <td class="text-center">{{dvc.model}}</td>
+                  <td class="text-center">{{dvc.imei}}</td>
+
+                  <td class="text-center">{{dvc.date_posted}}</td>
+                  <td class="text-right">
+                    <span class="badge badge-pill badge-primary"
+                      >{{dvc.status}}</span
+                    >
+                  </td>
+                </tr>
+
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif%} {% if user.is_customer %}
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">
+            Registered Devices
+            <span
+              ><a
+                href="{% url 'device-register' %}"
+                class="button float-right btn btn-success m-auto"
+                style="
+                  font-size: 80%;
+                  border-radius: 5rem;
+                  letter-spacing: 0.1rem;
+
+                  transition: all 0.2s;
+                "
+              >
+                + Add New Device</a
+              >
+            </span>
+          </h4>
+          <p class="category"></p>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table" >
+              <thead class="text-primary">
+                <th class="text-left">Plan</th>
+                <th class="text-center">Brand</th>
+                <th class="text-center">Model</th>
+                <th class="text-center">IMEI</th>
+                <th class="text-center">Documents</th>
+                <th class="text-center">Registered On</th>
+                <th class="text-right">Action</th>
+              </thead>
+              <tbody>
+                {% for dvc1 in Devices %}
+
+                <tr>
+                  <td class="text-left">{{dvc1.plan}}</td>
+                  <td class="text-center">{{dvc1.brand}}</td>
+                  <td class="text-center">{{dvc1.model}}</td>
+                  <td class="text-center">{{dvc1.imei}}</td>
+                  <td class="text-center">
+                    <a href="https://www.claimzy.in/media/{{dvc1.front}}"
+                      >Front</a
+                    >
+                    <a href="https://www.claimzy.in/media/{{dvc1.back}}"
+                      >Back</a
+                    >
+                    <a href="https://www.claimzy.in/media/{{dvc1.imei_pic}}"
+                      >IMEI</a
+                    >
+                    <a href="https://www.claimzy.in/media/{{dvc1.invoice}}"
+                      >Invoice</a
+                    >
+                  </td>
+                  <td class="text-center">{{dvc1.date_posted}}</td>
+                  <td class="text-right">
+                    {% if dvc1.status == "Approved" %}
+                    <a
+                      href="#ex1"
+                      id="{{dvc1.id}}"
+                      rel="modal:open"
+                      class="btn btn-info active claim-btn"
+                      role="button"
+                      aria-pressed="true"
+                      >Claim</a
+                    >
+                    {% endif %}
+                  </td>
+                </tr>
+
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif%}
+  </div>
+</div>
+<div id="ex1" class="modal">
+  <p>#Device ID : <span id="device-id"></span></p>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="exampleFormControlInput2">Brand</label>
+        <input
+          type="text"
+          class="form-control"
+          id="brand-select"
+          placeholder="Samsung"
+          disabled
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="exampleFormControlInput3">Model</label>
+        <input
+          type="text"
+          class="form-control"
+          id="model-select"
+          placeholder="J7"
+          disabled
+        />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-md-6">
+        <label for="exampleFormControlInput1"
+          >Registered Mobile No<span style="color: red">*</span></label
+        >
+        <input
+          maxlength="10"
+          type="tel"
+          class="form-control"
+          id="reg-mob"
+          placeholder="Enter your Registered Mobile Number"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="damage-select">Claim For:</label>
+        <select class="form-control" id="damage-select" name="title">
+          <option>Screen Damage</option>
+          <option>Liquid Damage</option>
+          <option>Unresponsive Touchpad</option>
+          <option>Broken Charging Port</option>
+          <option>Faulty Earphone Jack</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <br />
+    <label for="model-select">Issue(s) in brief</label>
+    <textarea
+      type="text"
+      class="form-control"
+      id="issue"
+      rows="4"
+      cols="50"
+      placeholder="I dropped the mobile and it just felt apart..."
+    ></textarea>
+    <br />
+    <input
+      type="number"
+      class="form-control"
+      id="recotp"
+      placeholder="Enter OTP "
+      style="display: none"
+    />
+
+    <a
+      class="btn btn-info active"
+      id="send-otp"
+      role="button"
+      aria-pressed="false"
+      >Send OTP</a
+    >
+
+    <a
+      class="btn btn-info active"
+      id="confirm-claim"
+      style="display: none"
+      role="button"
+      aria-pressed="false"
+      >Confirm Claim</a
+    >
+
+    <hr />
+    <p class="mt-5 d-none">
+      Once you apply for a claim you won't be able to cancel it.<br />
+      Contact Customer Support for any help on +91 123 456 7890
+    </p>
+  </div>
+</div>
+<script>
+  var element = document.getElementById("registered-usersNav");
+  element.classList.add("active");
+</script>
+<script>
+  function hideCloseButton(){
+   // get the close button inside the modal
+   $('#ex1 .close-modal').css('display', 'none');
+}
+
+// finally call the method
+hideCloseButton();
+
+  function deleteFn(e) {
+    $.ajax({
+      type: "GET",
+      url: '{% url "customer-delete" %}',
+      data: {
+        id: e,
+      },
+      success: function (xml) {
+        alert(xml);
+        window.location.href = '{% url "claimzy-users" %}';
+      },
+      error: function (data) {
+        alert("User Deletion Failed");
+      },
+    });
+  }
+
+  $(".claim-btn").click(function () {
+    $("#device-id").html(this.id);
+    var bid = this.id;
+
+    $.ajax({
+      type: "POST",
+      url: '{% url "fetch-device" %}',
+      data: { id: bid },
+      dataType: "json",
+      success: function (xml) {
+        $("#brand-select").val(xml.brand);
+        $("#model-select").val(xml.model);
+      },
+      error: function (jqXHR, exception) {
+        var msg = "";
+        if (jqXHR.status === 0) {
+          msg = "Not connect.\n Verify Network.";
+        } else if (jqXHR.status == 404) {
+          msg = "Requested page not found. [404]";
+        } else if (jqXHR.status == 500) {
+          msg = "Internal Server Error [500].";
+        } else if (exception === "parsererror") {
+          msg = "Requested JSON parse failed.";
+        } else if (exception === "timeout") {
+          msg = "Time out error.";
+        } else if (exception === "abort") {
+          msg = "Ajax request aborted.";
+        } else {
+          msg = "Uncaught Error.\n" + jqXHR.responseText;
+        }
+        $.notify(msg);
+      },
+    });
+  });
+
+  $("#send-otp").click(function () {
+    var mob = $("#reg-mob").val();
+
+    if (mob.length == 10 && $.isNumeric(mob)) {
+      $.ajax({
+        type: "POST",
+        url: "{% url 'send-otp'%}",
+        data: { mobile: mob },
+        dataType: "json",
+        success: function (xml) {
+          if (xml == "success") {
+            $.notify(
+              {
+                title: "<strong>KNOCK KNOCK!</strong>",
+                message: "OTP has been sent Succesfully",
+              },
+              {
+                type: "success",
+              }
+            );
+            $("#recotp").show();
+            $("#send-otp").hide();
+            $("#confirm-claim").show();
+          } else {
+            $.notify(
+              {
+                title: "<strong>KNOCK KNOCK!</strong>",
+                message: "" + xml,
+              },
+              {
+                type: "danger",
+              }
+            );
+          }
+        },
+        error: function (jqXHR, exception) {
+          var msg = "";
+          if (jqXHR.status === 0) {
+            msg = "Not connect.\n Verify Network.";
+          } else if (jqXHR.status == 404) {
+            msg = "Requested page not found. [404]";
+          } else if (jqXHR.status == 500) {
+            msg = "Internal Server Error [500].";
+          } else if (exception === "parsererror") {
+            msg = "Requested JSON parse failed.";
+          } else if (exception === "timeout") {
+            msg = "Time out error.";
+          } else if (exception === "abort") {
+            msg = "Ajax request aborted.";
+          } else {
+            msg = "Uncaught Error.\n" + jqXHR.responseText;
+          }
+          $.notify(msg);
+        },
+      });
+    } else if (mob.length == 0) {
+      $.notify(
+        {
+          title: "<strong>SORRY!</strong>",
+          message: "Registered Mobile Number is required",
+        },
+        {
+          type: "warning",
+        }
+      );
+    } else {
+      $.notify(
+        {
+          title: "<strong>SORRY!</strong>",
+          message: "Invalid Mobile Number",
+        },
+        {
+          type: "danger",
+        }
+      );
+    }
+  });
+
+  $("#confirm-claim").click(function () {
+    var otp = $("#recotp").val();
+    var d_id = $("#device-id").html();
+    var title = $("#damage-select").val();
+    var issue = $("#issue").val();
+    if (otp.length == 4 && $.isNumeric(otp)) {
+      $.ajax({
+        type: "POST",
+        url: "{% url 'confirm-claim' %}",
+        data: { ottp: otp, did: d_id, title: title, issue: issue },
+        dataType: "json",
+        success: function (xml) {
+          if (xml == "Success") {
+            $.notify(
+              {
+                title: "<strong>Heads up!</strong>",
+                message: "Your Claim Request has been placed",
+              },
+              {
+                type: "success",
+              }
+            );
+            setTimeout(function () {
+              location.reload();
+            }, 3000);
+          } else {
+            $.notify(
+              {
+                title: "<strong>Oh No!</strong>",
+                message: "" + xml,
+              },
+              {
+                type: "danger",
+              }
+            );
+          }
+        },
+        error: function (jqXHR, exception) {
+          var msg = "";
+          if (jqXHR.status === 0) {
+            msg = "Not connect.\n Verify Network.";
+          } else if (jqXHR.status == 404) {
+            msg = "Requested page not found. [404]";
+          } else if (jqXHR.status == 500) {
+            msg = "Internal Server Error [500].";
+          } else if (exception === "parsererror") {
+            msg = "Requested JSON parse failed.";
+          } else if (exception === "timeout") {
+            msg = "Time out error.";
+          } else if (exception === "abort") {
+            msg = "Ajax request aborted.";
+          } else {
+            msg = "Uncaught Error.\n" + jqXHR.responseText;
+          }
+          $.notify(msg);
+        },
+      });
+    } else {
+      $.notify(
+        {
+          title: "<strong>Uggh!</strong>",
+          message: "Invalid OTP : ",
+        },
+        {
+          type: "danger",
+        }
+      );
+    }
+  });
+</script>
+
+{% endblock content %}

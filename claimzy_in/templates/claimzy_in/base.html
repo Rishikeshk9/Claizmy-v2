@@ -1,0 +1,407 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'claimzy_in/img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'claimzy_in/img/favicon.ico' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>
+    Claimzy Admin
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'claimzy_in/css/datatables.min.css' %}" >
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS Files -->
+  <link href="{% static 'claimzy_in/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'claimzy_in/css/bootstrap-datetimepicker.css' %}" rel="stylesheet" type="text/css"/>
+
+  <link href="{% static 'claimzy_in/css/now-ui-dashboard.css' %}" type="text/css" rel="stylesheet"  />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+   <script src="{% static 'claimzy_in/js/core/jquery.min.js' %}"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+   <script src="{% static 'claimzy_in/js/webcam.js' %}"></script>
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="orange">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+      <div class="logo text-center">
+        <a href="#" class="simple-text logo-normal">
+          <img  src="{% static 'claimzy_in/img/logo-dark.png' %}" width="128px">
+        </a> 
+      </div>
+      <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <ul class="nav">
+          {% if Customer is not True %}
+          {% if Vendor == True %}
+          <li class="text-center  ">
+             
+             
+            <p class="h6 mb-4 text-light">Vendor Panel</p>
+
+            </a>
+          </li>
+          
+          <li id="dashboard-sideNav" >
+            <a href="{% url 'claimzy-home'%}">
+              <i class="now-ui-icons design_app"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+    
+         
+
+          <li id="registered-usersNav">
+            <a href="{% url 'claimzy-users'%}">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>Registered Users </p>
+            </a>
+          </li>
+         
+          {%endif%}
+         
+          
+          {% if user.is_staff %}
+
+          <li class="text-center  ">
+             
+             
+            <p class="h6 mb-4 text-light">Admin Panel</p>
+
+            </a>
+          </li>
+          
+          <li id="dashboard-sideNav" >
+            <a href="{% url 'claimzy-home'%}">
+              <i class="now-ui-icons design_app"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+          <li id="my-claimsNav">
+            <a href="{% url 'claim'%}">
+              <i class="now-ui-icons education_atom"></i>
+              <p>New Claims</p>
+            </a>
+          </li>
+         
+          
+          <li id="requestNav">
+            <a href="{% url 'requests'%}">
+              <i class="now-ui-icons education_paper"></i>
+              <p>New Device Requests</p>
+            </a>
+          </li>
+
+          <li id="registered-deviceNav">
+            <a href="{% url 'claimzy-devices'%}">
+              <i class="now-ui-icons tech_mobile"></i>
+              <p>Registered Devices </p>
+            </a>
+          </li>
+
+          <li id="registered-usersNav">
+            <a href="{% url 'claimzy-users'%}">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>Registered Users </p>
+            </a>
+          </li>
+
+          <li id="registered-vendorsNav">
+            <a href="{% url 'claimzy-vendors'%}">
+              <i class="now-ui-icons shopping_shop"></i>
+              <p>Registered Vendors </p>
+            </a>
+          </li>
+
+         
+          <li  >
+            <a href="{% url 'download-reports'%}">
+              <i class="now-ui-icons arrows-1_cloud-download-93 "></i>
+              <p>Download Reports</p>
+            </a>
+          </li>
+
+          <li class="active-pro">
+            <a href="{% url 'admin:index'%}">
+              <i class="now-ui-icons users_circle-08 "></i>
+              <p>Super Admin</p>
+            </a>
+          </li>
+          {% endif %}
+          {% endif%}
+          {% if Customer %}
+          <li class="text-center  ">
+             
+               
+            <p class="h6 mb-4 text-light">Customer Panel</p>
+
+            </a>
+          </li>
+
+          
+          <li id="registered-deviceNav">
+            <a href="{% url 'claimzy-home'%}">
+              <i class="now-ui-icons design_app"></i>
+              <p>Registered Devices</p>
+            </a>
+          </li>
+          <li class="d-none" id="my-profileNav">
+            <a href="{% url 'claimzy-mydetails'%}">
+              <i class="now-ui-icons users_single-02"></i>
+              <p>My Profile</p>
+            </a>
+          </li>
+          <li id="my-claimsNav">
+            <a href="{% url 'claim'%}">
+              <i class="now-ui-icons education_atom"></i>
+              <p>My Claims</p>
+            </a>
+          </li>
+         
+          {% endif%}
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel" id="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="#">Dashboard</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <form>
+              <div class="input-group no-border d-none">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="now-ui-icons ui-1_zoom-bold"></i>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item d-none">
+                <a class="nav-link" href="#pablo">
+                  <i class="now-ui-icons media-2_sound-wave"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Stats</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="now-ui-icons  users_single-02"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Some Actions</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'claimzy-mydetails'%}">{{user.name}}</a>
+                  
+                  <a class="dropdown-item" href="{% url 'claimzy-logout'%}">Logout</a>
+                </div>
+              </li>
+              <li class="nav-item d-none">
+                <a class="nav-link " href="{% url 'claimzy-mydetails'%}">
+                  <i class="now-ui-icons users_single-02"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Account</span>
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!--<div id="ex1" class="modal text-center">
+        <div class="form-group">
+          <label for="exampleFormControlInput2">Brand</label>
+            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Samsung" disabled>
+            <br>
+          <label for="exampleFormControlInput3">Model</label>
+            <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="J7" disabled>
+            <br>
+          <label for="sel1">Claim For:</label>
+          <select class="form-control" id="sel1">
+            <option>Screen Damage</option>
+            <option>Liquid Damage</option>
+            <option>Unresponsive Touchpad</option>
+            <option>Broken Charging Port</option>
+            <option>Other</option>
+          </select> 
+          <br>
+            <label for="exampleFormControlInput1">Registered Mobile No*</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="+91 123 456 7890">
+           
+          <a href="{% url 'claim'%}"   class="btn btn-info active  " role="button" aria-pressed="true">Send OTP</a> 
+       <hr> 
+       <p class="mt-5">Once you apply for a claim you won't be able to cancel it.<br>
+         Contact Customer Support for any help on 
+        +91 123 456 7890 </p>
+        </div>
+      
+     </div>
+       End Navbar -->
+      {% block content %}
+      {% endblock %}
+      
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav>
+            <ul>
+              <li>
+                <a href='{% url "claimzy" %}'>
+                  Claimzy
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  About Us
+                </a>
+              </li>
+              <li>
+                 
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright" id="copyright">
+            &copy;
+            <script>
+              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+            </script>, Designed & Developed by
+            <a href="https://www.supersapiens.in" target="_blank">Supersapiens</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="{% static 'claimzy_in/js/core/jquery.min.js' %}"></script>
+  <script src="{% static 'claimzy_in/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'claimzy_in/js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'claimzy_in/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMitbZiQnJE1LhT5H7hNaaB4ZQbnDh-j8"></script>
+  <!-- Chart JS -->
+  <script src="{% static 'claimzy_in/js/plugins/chartjs.min.js' %}"></script>
+  <!--  Notifications Plugin    -->
+  <script src="{% static 'claimzy_in/js/plugins/bootstrap-notify.js' %}"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{% static 'claimzy_in/js/now-ui-dashboard.min.js' %}" type="text/javascript"></script>
+  
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{% static 'claimzy_in/js/datatables.min.js' %}"></script>
+<script src="{% static 'claimzy_in/js/bootstrap-datetimepicker.js' %}"></script>
+
+<script src="{% static 'claimzy_in/js/jquery.watermark.min.js' %}"></script>
+
+<!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+  <script src="{% static 'claimzy_in/demo/demo.js' %}"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initGoogleMaps();
+    });
+  </script> 
+
+<script>
+  
+  $('.select-claim').on('change', function (e) {
+      var optionSelected = $("option:selected", this);
+      var valueSelected = this.value;
+      var id = this.id;
+      console.log(valueSelected+id);
+       
+      $.get(
+       '{% url "manage" %}',
+       {
+          'id':""+id,
+          'status': ""+valueSelected
+        }  ,
+      
+      ) .done(function() {
+        location.reload();
+  });
+  });
+
+  $('.select-request').on('change', function (e) {
+      var optionSelected = $("option:selected", this);
+      var valueSelected = this.value;
+      var id = this.id;
+      console.log(valueSelected+id);
+      $.ajax({ 
+        type: 'GET',
+        url: '{% url "manage-request" %}',
+        data: {
+          'id':""+id,
+          'status': ""+valueSelected,
+        },
+        success: function (xml) {
+          location.reload();
+        }  
+      });
+      
+  });
+
+
+
+  $(document).ready(function() {
+    $('#claims-table3').DataTable(   );
+    $('#claims-table2').DataTable();
+    $('#claims-table').DataTable();
+
+    var dt = new Date();
+var time = dt.toLocaleString();
+    
+$('.watermark').watermark({
+
+ text:time,
+ textColor:'red',
+ textSize: 13,
+ textWidth: 130
+
+});
+} );
+$( function() {
+    $( "#invoice-date" ).datepicker({ minDate: -15, maxDate: "0" });
+    $( "#invoice-date" ).datepicker( "option", "dateFormat", "d M, y" );
+   } );
+</script>
+</body>

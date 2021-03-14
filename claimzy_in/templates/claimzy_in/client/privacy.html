@@ -1,0 +1,178 @@
+
+{% load static %}
+
+{% block content %} 
+ 
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+      
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'claimzy_in/img/apple-icon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'claimzy_in/img/favicon.ico' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <!-- Title Page-->
+    <title>Claimzy - Register</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'claimzy_in/css/client/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'claimzy_in/css/client/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'claimzy_in/css/client/main2.css' %}"  rel="stylesheet" type="text/css"  />
+    <style> 
+
+        .pricing .card {
+          border: none;
+          border-radius: 1rem;
+          transition: all 0.2s;
+          box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+          margin: 20px;
+          background-image: linear-gradient(60deg,#FC6562,#FFD66F); 
+        }
+        
+        .pricing .card2 {
+          border: none;
+          border-radius: 1rem;
+          transition: all 0.2s;
+          box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1); 
+          background-color: #ffffff;
+          background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+          margin: 20px;
+        }
+
+        .pricing hr {
+          margin: 1.5rem 0;
+        }
+        
+        .pricing .card-title {
+          margin: 0.5rem 0;
+          font-size: 0.9rem;
+          letter-spacing: .1rem;
+          font-weight: bold;
+        }
+        
+        .pricing .card-price {
+          font-size: 3rem;
+          margin: 0;
+        }
+        
+        .pricing .card-price .period {
+          font-size: 0.8rem;
+        }
+        
+        .pricing ul li {
+          margin-bottom: 1rem;
+        }
+        
+        .pricing .text-muted {
+          opacity: 0.7;
+        }
+        
+        .pricing .btn {
+          font-size: 80%;
+          border-radius: 5rem;
+          letter-spacing: .1rem;
+          font-weight: bold;
+          padding: 1rem;
+          opacity: 0.7;
+          transition: all 0.2s;
+        }
+        
+        /* Hover Effects on Card */
+        
+        @media (min-width: 992px) {
+          .pricing .card:hover {
+             
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+          }
+          .pricing .card2:hover {
+ 
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+          }
+          .pricing .card:hover .btn {
+            opacity: 1;
+          }
+        }
+        
+        
+        </style>
+</head>
+<body>
+ 
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4  card2 mb-5 mb-lg-0  text-center ">
+                <div class="card-body">
+                    <img id="float-right" src="{% static 'claimzy_in/img/logo-dark.png' %}" alt="claim"  height="45"  class="  p-1 " alt="Claimzy">
+                     <br><br>
+                                
+
+<strong>ClaimZy Privacy Policy</strong><br><br>
+At ClaimZy, we maintain the highest levels of security standards. Be it storing your personal information with us or helping you purchase our products online from our secure website. We request you to please read our privacy policy outlined herein. We shall be updating our privacy policy from time to time, without notice to all customers. We urge you to please check our policy from time to time to be updated. Securing your personal information
+<br>
+<br>
+We collect your personal information so that we can serve you better. We are fully committed to ensuring the privacy, confidentiality and integrity of any personal information we seek from you. We protect this information by maintaining lawful physical, electronic, and procedural security means. Besides, we train our employees in the proper handling of your personal information at all times.
+<br>
+<br>
+If you apply for a membership online, we'll collect personal information about you as you enter it on our website. We may retain such information whenever you provide us at any point on our website. We may use these details to contact you to assist with our services in future.
+<br>
+<br>
+The ways in which we will use your data collected during the course of your membership are contained within the General and Product Terms & Conditions - we recommend you read these carefully; they are available online and will also be sent to you in your Welcome Kit. In addition to the above, we will collect information such as the IP address from which visitors login to their account. Besides, details about failed login attempts for the purpose of possible investigation into misuse or abuse of the website may also be collected.
+<br>
+<br>
+<strong>Collection of certain demographic data</strong>
+<br>
+<br>
+We request you for certain demographic data such as your email id, mobile number, address to serve you better. We use these data to assure you of speedy and reliable services during the currency of your membership. We will use your address to send our Welcome Letter to you and communicate with you from time to time regarding your membership. We record your WAN IP address to administer our website and improve our security continuously.
+<br>
+<br>
+We use web analytics software to show which pages on this website are visited most frequently and how long visitors spend on this website.
+<br>
+<br>
+<strong>Security Precautions on our website</strong>
+<br>
+<br>
+Your access to ClaimZy secure website is based on your login ID and password. Logins to your account are audited in our systems and we maintain adequate checks and balances to ensure that only you have access to your account. 
+<br>
+<br>
+<strong>Questions ?</strong>
+<br>
+<br>
+Questions regarding this statement should be directed to the following address: info@claimzy.in
+<br>
+<br>
+
+                                
+                           
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Jquery JS-->
+    <script src="{% static 'claimzy_in/css/client/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'claimzy_in/css/client/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'claimzy_in/css/client/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'claimzy_in/css/client/js/global.js' %}"></script>
+
+</body>  
+{% endblock content %}

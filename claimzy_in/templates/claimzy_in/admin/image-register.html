@@ -1,0 +1,1134 @@
+{% extends "claimzy_in/base.html" %} {% load static %} {% block content %}
+
+<link
+  href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+  rel="stylesheet"
+/>
+
+<!-- Vendor CSS-->
+<link
+  href="{% static 'claimzy_in/css/client/vendor/select2/select2.min.css' %}"
+  rel="stylesheet"
+  media="all"
+/>
+<link
+  href="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.css' %}"
+  rel="stylesheet"
+  media="all"
+/>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{% static 'claimzy_in/js/core/jquery.min.js' %}"></script>
+
+<!-- Main CSS-->
+<style>
+  .pricing .card {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .pricing hr {
+    margin: 1.5rem 0;
+  }
+
+  .pricing .card-title {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+  }
+
+  .pricing .card-price {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .pricing .card-price .period {
+    font-size: 0.8rem;
+  }
+
+  .pricing ul li {
+    margin-bottom: 1rem;
+  }
+
+  .pricing .text-muted {
+    opacity: 0.7;
+  }
+
+  .pricing .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    padding: 1rem;
+    opacity: 0.7;
+    transition: all 0.2s;
+  }
+
+  /* Hover Effects on Card */
+
+  @media (min-width: 992px) {
+    .pricing .card:hover {
+      margin-top: -0.25rem;
+      margin-bottom: 0.25rem;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+    }
+    .pricing .card:hover .btn {
+      opacity: 1;
+    }
+  }
+
+  .btn-file {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+  }
+
+  #img-upload {
+    width: 100%;
+  }
+  #loader {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+  #loader2 {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+</style>
+
+<div class="panel-header panel-header-sm"></div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<!-- Image loader -->
+<div id="loader" onclick="off()">
+  <img
+    style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 50px;
+      color: white;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+    "
+    src="{% static 'claimzy_in/anim/reload.gif' %}"
+    class="m-auto"
+    width="128px"
+    height="128px"
+  />
+</div>
+
+<div id="loader2">
+  <img
+    style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 50px;
+      color: white;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+    "
+    src="{% static 'claimzy_in/anim/payment-successful.gif' %}"
+    class="m-auto"
+    width="128px"
+    height="128px"
+  />
+</div>
+<div class="container content">
+  {% include "claimzy_in/admin/plan-register.html" %}
+  <div class="card m-auto">
+    <!-- Default form login -->
+    <form
+      class="text-center border border-light p-5"
+      id="data"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      {% csrf_token %}
+
+      <h2 class="title">Mobile Details</h2>
+      <hr style="border-top: 1px solid rgb(196, 185, 185)" />
+      <br />
+      <p class="h6 mb-4" style="color: #f37254">
+        Note: Before proceeding Make sure you upload correct data.
+      </p>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label class="label"
+            ><span style="color: red">*</span>Full Name</label
+          >
+          <input
+            id="uname "
+            class="form-control"
+            value="{{name}}"
+            type="text"
+            name="name"
+            required
+            {%
+            if
+            Customer
+            %}
+            readonly
+            {%
+            endif
+            %}
+          />
+        </div>
+
+        <div class="form-group col-md-3">
+          <label class="label"
+            ><span style="color: red">*</span>Mobile Number</label
+          >
+          <input
+            id="mob"
+            class="form-control"
+            maxlength="10"
+            value="{{mob}}"
+            type="tel"
+            name="mob"
+            required
+            {%
+            if
+            Customer
+            %}
+            readonly
+            {%
+            endif
+            %}
+          />
+        </div>
+
+        <div class="form-group col-md-3 d-none">
+          <label class="label"><span style="color: red">*</span>Address</label>
+          <div class="rs-select2 js-select-simple select--no-search">
+            <input
+              class="form-control"
+              type="text"
+              value="{{address}}"
+              name="address"
+              required
+              cols="40"
+              rows="5"
+              {%
+              if
+              Customer
+              %}
+              readonly
+              {%
+              endif
+              %}
+            />
+          </div>
+        </div>
+      </div>
+
+      <hr style="color: orangered" />
+
+      <div class="row text-center">
+        <div class="col-md-4 m-auto text-center">
+          <label for="mob"
+            ><span style="color: red">*</span>Address Line 1</label
+          >
+          <!-- Email -->
+          <div class="form-group">
+            <input
+              type="text"
+              id="uaddress"
+              name="address"
+             
+              placeholder="Address Line 1"
+              required
+              readonly
+              value="{{address}}"
+              class="form-control mb-4"
+              placeholder=""
+            />
+          </div>
+        </div>
+
+        <div class="col-md-4 m-auto text-center">
+          <label for="mob"
+            ><span style="color: red">*</span>Address Line 2</label
+          >
+          <!-- Email -->
+          <div class="form-group">
+            <input
+              id="address2"
+              class="form-control"
+              type="text"
+              placeholder="Address Line 2"
+              name="address2"
+              value="{{address2}}"
+              required
+              cols="40"
+              readonly
+              rows="5"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-4 m-auto text-center">
+          <label for="mob"><span style="color: red">*</span>City</label>
+          <!-- Email -->
+          <div class="form-group">
+            <input
+              id="city"
+              class="form-control"
+              type="text"
+              placeholder="City"
+              name="city"
+              required
+              value="{{city}}"
+              cols="40"
+              readonly
+              rows="5"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-4 m-auto text-center">
+          <label for="mob"><span style="color: red">*</span>Pincode</label>
+          <!-- Email -->
+          <div class="form-group">
+            <input
+              id="pincode"
+              class="form-control"
+              type="text"
+              placeholder="Pincode"
+              name="pincode"
+              required
+              readonly
+              value="{{pincode}}"
+              cols="40"
+              rows="5"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="state"><span style="color: red">*</span>State</label>
+          <div class="form-group">
+            <select name="state" required class="form-control">
+              <option value="{{state}}">{{state}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-4 m-auto text-center" style="opacity: 0">
+          <label for="mob"
+            ><span style="color: red">*</span>Address Line 1:</label
+          >
+          <!-- Email -->
+          <div class="form-group">
+            <input
+              type="text"
+             
+              class="form-control mb-4"
+              placeholder=""
+              readonly
+              required
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label><span style="color: red">*</span>Mobile Brand</label>
+          <div class=" ">
+            <select class="form-control" id="brand" name="brand" required>
+              <option selected="selected">{{brand}}</option>
+            </select>
+            <div class="select-dropdown"></div>
+          </div>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="inputEmail4"
+            ><span style="color: red">*</span>Model</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            value="{{model}}"
+            id="model"
+            name="model"
+            required
+            readonly
+            placeholder="Model"
+          />
+        </div>
+      </div>
+      <hr />
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label class="label"
+            ><span style="color: red">*</span>Device #IMEI
+            <span style="color: rgb(252, 188, 11)"> &nbsp; (Dial *#06#)</span>
+          </label>
+
+          <input
+            class="form-control"
+            id="imi"
+            type="text"
+            name="imei"
+            maxlength="16"
+            required
+          />
+          <p id="imi-note" style="color: red"></p>
+          <script type="text/javascript">
+            $("#imi").on("focusout", function () {
+              var value = $("#imi").val();
+              if (isNaN(value)) {
+                $("#imi-note").html("Please enter valid Number");
+                $("#imi").val("");
+                return false;
+              } else {
+                $("#imi-note").html("");
+              }
+
+              if (value.length < 16) {
+                $("#imi-note").html("Please enter 16 Digit IMEI");
+                $("#imi").val("");
+                return false;
+              } else {
+                $("#imi-note").html("");
+              }
+            });
+          </script>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label class="label"
+            ><span style="color: red">*</span>Price on Invoice</label
+          ><br />
+          <input
+            id="poi"
+            class="form-control"
+            type="number"
+            name="price"
+            cols="40"
+            rows="5"
+            required
+          />
+        </div>
+        <div class="form-group col-md-3">
+          <label class="label"
+            ><span style="color: red">*</span>Invoice Date</label
+          >
+          <div class="input-group-icon">
+            <input
+              class="input--style-4 js-datepicker form-control"
+              type="text"
+              name="date"
+              id="invdate"
+              required
+            />
+            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-3">
+          <label for="invoice-pic" class="label"
+            ><span style="color: red">*</span>Invoice Photo</label
+          >
+          <input
+            type="file"
+            class="form-control"
+            name="invoice-pic"
+            id="invoice-pic"
+            onclick="snapshot();"
+            required
+            accept="image/*"
+            capture
+          />
+          <img width="120px" id="invoice-img" />
+        </div>
+
+        <div class="col-md-3">
+          <label for="imei" class="label"
+            ><span style="color: red">*</span>Device screen with #IMEI</label
+          >
+          <input
+            type="file"
+            class="form-control"
+            id="imei"
+            name="imei-img"
+            onclick="snapshot();"
+            accept="image/*"
+            capture
+            required
+          />
+          <!-- opens my hard drive and expects input from hard drive-->
+          <img width="120px" id="imei-img" />
+        </div>
+
+        <div class="col-md-3">
+          <label for="back" class="label"
+            ><span style="color: red">*</span>Back</label
+          >
+          <input
+            type="file"
+            class="form-control"
+            name="back"
+            id="back"
+            onclick="snapshot();"
+            accept="image/*"
+            capture
+            required
+          />
+          <img width="120px" id="back-img" />
+        </div>
+        <div class="col-md-3">
+          <label for="front" class="label"
+            ><span style="color: red">*</span>Front</label
+          >
+          <input
+            type="file"
+            class="form-control"
+            name="front"
+            id="front"
+            onclick="snapshot();"
+            accept="image/*"
+            capture
+            required
+          />
+          <img width="120px" id="front-img" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-4">
+          <input
+            class=" "
+            type="checkbox"
+            class="inline"
+            required
+            name="terms"
+          />
+          I accept the
+          <a
+            href="{%url 'terms' %}"
+            style="color: blue; text-decoration: none"
+            target="_blank"
+            ><u>Terms and Conditions</u>
+          </a>
+        </div>
+      </div>
+
+      <input
+        id="plan-title"
+        type="text"
+        style="opacity: 0%"
+        name="plan"
+        value="{{plan}}"
+      />
+      <input
+        type="text"
+        style="opacity: 0%"
+        id="amount"
+        name="amount"
+        value="{% if plan == 'silver' %}
+            999
+            {% elif plan == 'gold' %}
+            1999
+            {%endif%}"
+      />
+      <div class="form-row">
+        <div class="col-md-3">
+          <input
+            type="text"
+            id="otp"
+            name="mobile"
+            required
+            class="form-control mb-4"
+            placeholder="OTP"
+          />
+        </div>
+        {% csrf_token %}
+        <div class="col-md-3">
+          <a
+            id="rzp-butt"
+            class="btn btn-success text-uppercase"
+            style="font-size: 80%; color: white; transition: all 0.2s"
+            >Confirm OTP
+          </a>
+        </div>
+        <div class="col-md-3">
+          <a
+            href="#"
+            id="rzp-button"
+            class="btn disabled btn-success text-uppercase"
+            style="
+              font-size: 80%;
+
+              color: white;
+              transition: all 0.2s;
+            "
+            type="submit"
+            >Proceed to pay</a
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<canvas id="canvas1" style="display: none" width="200" height="200"></canvas>
+
+<canvas id="canvas2" style="display: none" width="200" height="200"></canvas>
+
+<canvas id="canvas3" style="display: none" width="200" height="200"></canvas>
+
+<canvas id="canvas4" style="display: none" width="200" height="200"></canvas>
+
+<!-- Jquery JS-->
+<script src="{% static 'claimzy_in/css/client/vendor/jquery/jquery.min.js' %}"></script>
+<!-- Vendor JS-->
+<script src="{% static 'claimzy_in/css/client/vendor/select2/select2.min.js' %}"></script>
+<script src="{% static 'claimzy_in/css/client/vendor/datepicker/moment.min.js' %}"></script>
+<script src="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'claimzy_in/css/client/js/global.js' %}"></script>
+
+<script>
+  var element = document.getElementById("registered-deviceNav");
+  element.classList.add("active");
+
+  function dataURItoBlob(dataURI) {
+    // convert base64 to raw binary data held in a string
+    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+    var byteString = atob(dataURI.split(",")[1]);
+
+    // separate out the mime component
+    var mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
+
+    // write the bytes of the string to an ArrayBuffer
+    var ab = new ArrayBuffer(byteString.length);
+
+    // create a view into the buffer
+    var ia = new Uint8Array(ab);
+
+    // set the bytes of the buffer to the correct values
+    for (var i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+
+    // write the ArrayBuffer to a blob, and you're done
+    var blob = new Blob([ab], { type: mimeString });
+    return blob;
+  }
+</script>
+
+<script>
+  function on() {
+    document.getElementById("loader").style.display = "block";
+  }
+
+  function off() {
+    document.getElementById("loader").style.display = "none";
+  }
+</script>
+<script>
+  var amount = document.getElementById("amount").value;
+  amount = 100;
+  var options1 = {
+    key: "rzp_live_nIDSu6ZA7x9y5m",
+    amount: amount, // 2000 paise = INR 20
+    name: "Claimzy",
+    description: "Subscription Plan Payment",
+    image: "{% static 'claimzy_in/img/logo-dark.png' %}",
+    handler: function (response) {
+      $.notify(
+        {
+          title: "<strong>KNOCK KNOCK!</strong>",
+          message: "" + JSON.stringify(response),
+        },
+        {
+          type: "primary",
+        }
+      );
+
+      // do an ajax call to backend and capture and verify the payment then
+      //redirect to payment success page.
+      //{"razorpay_payment_id":"pay_F6wpwogVLEUPYk"}
+      var p_id = response.razorpay_payment_id;
+      var formData = new FormData();
+      var mob = $("#mob").val();
+      var imei = $("#imi").val();
+      formData.append("amt", amount);
+      formData.append("paymentid", p_id);
+      formData.append("mobile", mob);
+      formData.append("imei", imei);
+      $.ajax({
+        type: "POST",
+        url: '{% url "capture-payment" %}',
+        data: formData,
+        success: function (xml) {
+          $.notify(
+            {
+              title: "<strong>HOLD ON!!</strong>",
+              message: "Payment " + xml + " Data will be uploaded now!",
+            },
+            {
+              type: "info",
+            }
+          );
+
+          var formElement = document.querySelector("form#data");
+          var formData = new FormData(formElement);
+
+          var dataURL = document
+            .getElementById("canvas1")
+            .toDataURL("image/png");
+          var dataURL2 = document
+            .getElementById("canvas2")
+            .toDataURL("image/png");
+          var dataURL3 = document
+            .getElementById("canvas3")
+            .toDataURL("image/png");
+          var dataURL4 = document
+            .getElementById("canvas4")
+            .toDataURL("image/png");
+
+          var file1 = dataURItoBlob(dataURL);
+          var file2 = dataURItoBlob(dataURL2);
+          var file3 = dataURItoBlob(dataURL3);
+          var file4 = dataURItoBlob(dataURL4);
+
+          var formElement = document.querySelector("form#data");
+          var formData = new FormData(formElement);
+          formData.delete("invoice-pic");
+          formData.delete("imei-img");
+          formData.delete("front");
+          formData.delete("back");
+
+          formData.append(
+            "invoice-pic",
+            file1,
+            "" + formData.get("imei") + ".png"
+          );
+          formData.append(
+            "imei-img",
+            file2,
+            "" + formData.get("imei") + ".png"
+          );
+          formData.append("front", file3, "" + formData.get("imei") + ".png");
+          formData.append("back", file4, "" + formData.get("imei") + ".png");
+
+          $.ajax({
+            type: "POST",
+            url: '{% url "upload-data" %}',
+            data: formData,
+            beforeSend: function () {
+              // Show image container
+              $("#loader").show();
+            },
+            success: function (xml) {
+              $("#loader").hide();
+              $("#loader2").show();
+              $.notify(
+                {
+                  title: "<strong>Congratulations!</strong>",
+                  message: "Device Registered Succesfully",
+                },
+                {
+                  type: "success",
+                }
+              );
+              setTimeout(function () {
+                window.location.href = '{% url "claimzy-home" %}'; //will redirect to your blog page (an ex: blog.html)
+              }, 4000); //will call the function after 2 secs.
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+          });
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+      });
+
+      // do an ajax call to backend and capture and verify the payment then
+      //redirect to payment success page.
+    },
+    theme: {
+      color: "rgba(0, 188, 212, 0.7)",
+    },
+  };
+
+  document.getElementById("rzp-butt").onclick = function (e) {
+    $.ajax({
+      type: "GET",
+      url: '{% url "confirm-image-otp" %}',
+      data: {
+        ottp: document.getElementById("otp").value,
+      },
+      success: function (xml) {
+        $("#rzp-button").removeClass("disabled");
+        $("#rzp-butt").hide();
+        $.notify(
+          {
+            title: "<strong>Congratulations!</strong>",
+            message: "OTP verified Successfully",
+          },
+          {
+            type: "success",
+          }
+        );
+      },
+      error: function (data) {
+        $.notify(
+          {
+            title: "<strong>Oops!</strong>",
+            message: "OTP mismatch",
+          },
+          {
+            type: "danger",
+          }
+        );
+      },
+    });
+  };
+  var rzp2 = new Razorpay(options1);
+
+  document.getElementById("rzp-button").onclick = function (e) {
+    e.preventDefault();
+    if (
+      document.getElementById("imei").files.length != 0 &&
+      document.getElementById("invoice-pic").files.length != 0 &&
+      document.getElementById("front").files.length != 0 &&
+      document.getElementById("back").files.length != 0 &&
+      document.getElementById("imi").value != null &&
+      document.getElementById("imi").value != "" &&
+      document.getElementById("poi").value != null &&
+      document.getElementById("poi").value != "" &&
+      document.getElementById("invdate").value != null &&
+      document.getElementById("invdate").value != ""
+    ) {
+      rzp2.open();
+    } else {
+      $.notify(
+        {
+          title: "<strong>OHH NO!</strong>",
+          message: "Please attach all the Required Device Pictures.",
+        },
+        {
+          type: "danger",
+        }
+      );
+    }
+    e.preventDefault();
+  };
+</script>
+<script>
+  $(document).ready(function () {
+    $(document).on("change", ".btn-file :file", function () {
+      var input = $(this),
+        label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+      input.trigger("fileselect", [label]);
+    });
+
+    $(".btn-file :file").on("fileselect", function (event, label) {
+      var input = $(this).parents(".input-group").find(":text"),
+        log = label;
+
+      if (input.length) {
+        input.val(log);
+      } else {
+        if (log) alert(log);
+      }
+    });
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $("#invoice-img").attr("src", e.target.result);
+
+          var image = new Image();
+          image.onload = function () {
+            var canvas = document.getElementById("canvas1");
+            var context = canvas.getContext("2d");
+            canvas.width = image.width / 4;
+            canvas.height = image.height / 4;
+            context.drawImage(
+              image,
+              0,
+              0,
+              image.width,
+              image.height,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+          };
+          image.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#invoice-pic").change(function () {
+      readURL(this);
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $(document).on("change", ".btn-file :file", function () {
+      var input = $(this),
+        label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+      input.trigger("fileselect", [label]);
+    });
+
+    $(".btn-file :file").on("fileselect", function (event, label) {
+      var input = $(this).parents(".input-group").find(":text"),
+        log = label;
+
+      if (input.length) {
+        input.val(log);
+      } else {
+        if (log) alert(log);
+      }
+    });
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $("#imei-img").attr("src", e.target.result);
+
+          var image = new Image();
+          image.onload = function () {
+            var canvas = document.getElementById("canvas2");
+            var context = canvas.getContext("2d");
+            canvas.width = image.width / 4;
+            canvas.height = image.height / 4;
+            context.drawImage(
+              image,
+              0,
+              0,
+              image.width,
+              image.height,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+          };
+          image.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#imei").change(function () {
+      readURL(this);
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $(document).on("change", ".btn-file :file", function () {
+      var input = $(this),
+        label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+      input.trigger("fileselect", [label]);
+    });
+
+    $(".btn-file :file").on("fileselect", function (event, label) {
+      var input = $(this).parents(".input-group").find(":text"),
+        log = label;
+
+      if (input.length) {
+        input.val(log);
+      } else {
+        if (log) alert(log);
+      }
+    });
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $("#back-img").attr("src", e.target.result);
+
+          var image = new Image();
+          image.onload = function () {
+            var canvas = document.getElementById("canvas3");
+            var context = canvas.getContext("2d");
+            canvas.width = image.width / 4;
+            canvas.height = image.height / 4;
+            context.drawImage(
+              image,
+              0,
+              0,
+              image.width,
+              image.height,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+          };
+          image.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#back").change(function () {
+      readURL(this);
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $(document).on("change", ".btn-file :file", function () {
+      var input = $(this),
+        label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+      input.trigger("fileselect", [label]);
+    });
+
+    $(".btn-file :file").on("fileselect", function (event, label) {
+      var input = $(this).parents(".input-group").find(":text"),
+        log = label;
+
+      if (input.length) {
+        input.val(log);
+      } else {
+        if (log) alert(log);
+      }
+    });
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $("#front-img").attr("src", e.target.result);
+
+          var image = new Image();
+          image.onload = function () {
+            var canvas = document.getElementById("canvas4");
+            var context = canvas.getContext("2d");
+            canvas.width = image.width / 4;
+            canvas.height = image.height / 4;
+            context.drawImage(
+              image,
+              0,
+              0,
+              image.width,
+              image.height,
+              0,
+              0,
+              canvas.width,
+              canvas.height
+            );
+          };
+          image.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $("#front").change(function () {
+      readURL(this);
+    });
+  });
+</script>
+
+<script>
+  $("#poi").on("focusout", function () {
+    var value = $("#poi").val();
+    var plan = $("#plan-title").val();
+    if (value > 20000 || value < 5000) {
+      if (plan == "silver") {
+        $.notify(
+          {
+            title: "<strong>OHH NO!</strong>",
+            message: "Price Invalid for Silver Plan.",
+          },
+          {
+            type: "danger",
+          }
+        );
+        $("#poi").val("");
+      }
+    }
+    if (value <= 20000 || value > 40000) {
+      if (plan == "gold") {
+        $.notify(
+          {
+            title: "<strong>UHH NOO!</strong>",
+            message:
+              "Please choose a different Plan based on your Invoice Price",
+          },
+          {
+            type: "danger",
+          }
+        );
+        $("#poi").val("");
+      }
+    }
+  });
+</script>
+
+{% endblock content %}

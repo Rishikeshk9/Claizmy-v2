@@ -1,0 +1,131 @@
+{% load static %}
+
+{% block content %}
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates"> 
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'claimzy_in/img/apple-icon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'claimzy_in/img/favicon.ico' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
+    <!-- Title Page-->
+    <title>Claimzy - Login</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'claimzy_in/css/client/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'claimzy_in/css/client/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'claimzy_in/css/client/main2.css' %}"  rel="stylesheet" type="text/css"  />
+   
+</head>
+<body>
+
+	<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <img id="float-right" src="{% static 'claimzy_in/img/logo-dark.png' %}" alt="claim"  height="45"  class="  p-1 " alt="Claimzy">
+                     
+                    <form  method="POST" action="" id="login">
+						{% csrf_token %}
+						<h2 class="title">Login</h2>
+
+                        <div class="row row-space">
+							
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"><span style="color: red;">*</span>Registered Mobile No.</label>
+                                    <input class="input--style-4" type="text" id="mob" name="mob" required>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"><span style="color: red;">*</span>OTP</label>
+                                    <input class="input--style-4" type="password" id="otp" name="otp" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-t-15">
+                            <button id="gotp" class="btn btn--radius-2 btn--blue " type="submit" >Get OTP</button>
+							<button id="log"class="btn btn--radius-2 btn--blue " style="display: none;" onclick=>Confirm OTP</button>
+                         </div>
+                    </form>
+
+                    
+                </div>
+            </div>
+        </div>
+	</div>	
+	
+	    <!-- Jquery JS-->
+		<script src="{% static 'claimzy_in/css/client/vendor/jquery/jquery.min.js' %}"></script>
+		<!-- Vendor JS-->
+		<script src="{% static 'claimzy_in/css/client/vendor/select2/select2.min.js' %}"></script>
+		<script src="{% static 'claimzy_in/css/client/vendor/datepicker/moment.min.js' %}"></script>
+		<script src="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.js' %}"></script>
+	
+		<!-- Main JS-->
+		<script src="{% static 'claimzy_in/css/client/js/global.js' %}"></script>
+	
+		<script>
+			 	var otp_sent = false;
+
+				$("form#login").submit(function(e) {
+    e.preventDefault();    
+    var formData = new FormData(this);  
+	if(!otp_sent){				
+    $.ajax({ 
+        type: 'POST',
+        url: '{% url "login" %}',
+        data: formData,
+        success: function (xml) {
+          alert(xml);
+		  $("#gotp").hide();
+          $("#log").show();
+		  otp_sent = true;
+        } ,
+        cache: false,
+        contentType: false,
+        processData: false
+      });
+	}
+	else{
+		$.ajax({ 
+        type: 'POST',
+        url: '{% url "otp-confirm" %}',
+        data: formData,
+        success: function (xml) {
+			location.href = '{% url "claimzy-home" %}';
+		  $("#gotp").show();
+          $("#log").hide();
+		  otp_sent = false;
+        } ,
+        cache: false,
+        contentType: false,
+        processData: false
+      });
+	}
+}); 
+
+ 
+		</script>
+	</body> 
+{% endblock content %}	
+	
+
+	
+	
+ 

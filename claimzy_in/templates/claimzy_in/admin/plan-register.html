@@ -1,0 +1,81 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'claimzy_in/css/plancard.css' %}" >
+
+
+<section class="pricing ">
+  <div class="container">
+    <div class="row">
+
+      {% if plan == 'silver' %}
+      <!-- Free Tier -->
+      <div class="col-lg-4 pt-5 mx-auto">
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">SILVER</h5>
+            <h6 class="card-price text-center">₹999/-<span class="period"></span></h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Liquid/Water Damage</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Cracked/Broken Screen</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unresponsive/Dead
+                Touchpad</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Broken Charging Port</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Faulty Earphone Jack</li> 
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>2 Years Support</li> 
+
+            </ul>
+          
+           </div>
+        </div>
+      </div> 
+      {% elif plan == 'gold' %}
+      <!-- Free Tier -->
+      <div class="col-lg-4 py-5 mx-auto">
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">GOLD</h5>
+            <h6 class="card-price text-center">₹1999/-<span class="period"></span></h6>
+            <hr>
+            <ul class="fa-ul">
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Liquid/Water Damage</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Cracked/Broken Screen</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Unresponsive/Dead
+                Touchpad</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Broken Charging Port</li>
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>Faulty Earphone Jack</li> 
+              <li><span class="fa-li"><i class="fas fa-check"></i></span>2 Years Support</li> 
+
+            </ul>
+            
+
+          </div>
+        </div>
+      </div>
+
+      
+    
+      {%else%}
+      <!-- Free Tier -->
+      <div class="col-lg-4 py-5 mx-auto">
+        <div class="card mb-5 mb-lg-0">
+          <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">SORRY</h5>
+            <h6 class="card-price text-center">Invalid Plan<span class="period"></span></h6>
+            <hr>
+            <ul class="fa-ul">
+               
+            </ul>
+           </div>
+        </div>
+      </div>
+      {%endif%}
+    </div>
+  </div>
+
+
+</section>
+
+<script>
+  var element = document.getElementById("registered-deviceNav");
+    element.classList.add("active");
+        </script>

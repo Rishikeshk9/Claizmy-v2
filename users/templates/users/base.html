@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'claimzy_in/img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'claimzy_in/img/favicon.ico' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>
+    Claimzy Registration
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS Files -->
+  <link href="{% static 'claimzy_in/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'claimzy_in/css/now-ui-dashboard.css' %}" type="text/css" rel="stylesheet"  />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="{% static 'users/css/registration.css' %}"  rel="stylesheet" type="text/css"  />
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'users/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'users/vendor/animate/animate.css' %}">
+  <!--===============================================================================================-->	
+    <link rel="stylesheet" type="text/css" href="{% static 'users/vendor/css-hamburgers/hamburgers.min.css' %}">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'users/vendor/animsition/css/animsition.min.css' %}">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'users/vendor/select2/select2.min.css' %}">
+  <!--===============================================================================================-->	
+    <link rel="stylesheet" type="text/css" href="{% static 'users/vendor/daterangepicker/daterangepicker.css' %}">
+  <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/login.css' %}">
+  <!--===============================================================================================-->
+
+</head>
+
+<body class="container pt-4 "  >
+
+    <div class="card m-auto p-auto  shadow" >
+
+      {% if messages %}
+        {% for message in messages %}           
+          <div class="alert alert-{{ message.tags }}">
+            <button type="button" aria-hidden="true" class="close">
+              <i class="now-ui-icons ui-1_simple-remove"></i>
+            </button>
+            <span>
+              <b> Success - </b> {{ message }}</span>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% block content %}
+    {% endblock %}
+  </div>
+    <footer class="footer">
+        <div class="container-fluid">
+          <nav>
+            <ul>
+              <li>
+                <a href="https://www.creative-tim.com">
+                  Claimzy
+                </a>
+              </li>
+              <li>
+                <a href="http://presentation.creative-tim.com">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="http://blog.creative-tim.com">
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright" id="copyright">
+            &copy;
+            <script>
+              document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+            </script>, Designed & Developed by
+            <a href="https://www.supersapiens.in" target="_blank">Supersapiens</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="{% static 'claimzy_in/js/core/jquery.min.js' %}"></script>
+  <script src="{% static 'claimzy_in/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'claimzy_in/js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'claimzy_in/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+  <!-- Chart JS -->
+  <script src="{% static 'claimzy_in/js/plugins/chartjs.min.js' %}"></script>
+  <!--  Notifications Plugin    -->
+  <script src="{% static 'claimzy_in/js/plugins/bootstrap-notify.js' %}"></script>
+   <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+  <script src="{% static 'users/js/registration.js' %}"></script>
+   
+  <!--===============================================================================================-->
+    <script src="{% static 'users/vendor/animsition/js/animsition.min.js' %}"></script> 
+    <script src="{% static 'users/vendor/bootstrap/js/bootstrap.min.js' %}"></script> 
+  <!--===============================================================================================-->
+    <script src="{% static 'users/vendor/daterangepicker/moment.min.js' %}"></script>
+    <script src="{% static 'users/vendor/daterangepicker/daterangepicker.js' %}"></script>
+  <!--===============================================================================================-->
+    <script src="{% static 'users/vendor/countdowntime/countdowntime.js' %}"></script>
+  <!--===============================================================================================-->
+    <script src="{% static 'users/js/main.js' %}"></script>
+</body>

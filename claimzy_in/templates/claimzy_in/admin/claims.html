@@ -1,0 +1,95 @@
+{% extends "claimzy_in/base.html" %} {% load static %} {% block content %}
+
+<!-- Modal HTML embedded directly into document -->
+
+<div class="panel-header panel-header-sm"></div>
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Claims</h4>
+          <p class="category"></p>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped" id="claims-table">
+              <thead class="text-primary">
+                <th class="text-left">#</th>
+                <th class="text-left">Brand</th>
+                <th class="text-left">Model</th>
+                <th class="text-left">Notes</th>
+                <th class="text-right">IMEI</th>
+                {% if Customer == False %}
+                <th class="text-right">Mobile Number</th>
+
+                {%endif%}
+                <th class="text-right">Claimed On</th>
+                <th class="text-right">Last Update</th>
+
+                <th class="text-right">Status</th>
+              </thead>
+              <tbody>
+                {% for user in claims %}
+                <tr>
+                  <th class="text-left">{{user.id}}</th>
+                  <td class="text-left">{{user.device.brand}}</td>
+                  <td class="text-left">{{user.device.model}}</td>
+                  <td class="text-left">{{user.issue}}</td>
+
+                  <td class="text-right">{{user.device.imei}}</td>
+                  {% if Customer == False %}
+                  <td class="text-right">{{user.mob}}</td>
+
+                  {%endif%}
+                  <td class="text-right">{{user.date_posted}}</td>
+
+                  <td class="text-right">{{user.last_update}}</td>
+
+                  <td class="text-right">
+                    {% if Customer == False %}
+                    <div class="form-group">
+                      <select
+                        class="form-control select-claim"
+                        id="{{user.id}}"
+                      >
+                        <option>{{user.status}}</option>
+                        <option disabled>──────────</option>
+                        <option>Under Review</option>
+                        <option>Rejected</option>
+                        <option>Being Processed</option>
+                        <option>Approved</option>
+                        <option>Complete</option>
+                      </select>
+                    </div>
+                    {% else %}
+                    <span
+                      class="badge badge-pill badge-primary"
+                      aria-pressed="false"
+                      >{{user.status}}</span
+                    >
+
+                    {%endif%}
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            <img
+              class="d-none watermark"
+              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUTExMWFhUXGBcYFxcXGBoXFxcXFxcYFxcYFxUYHSggGBolHRUXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFw8PFysdFR0tLS0rNzctLS0tLS0tLS0tLS0tLS0tLS03LTctLS0rKzctNysrKy0rKy0rKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAZAAADAQEBAAAAAAAAAAAAAAABAgMABAf/xAA3EAABAgIGBwcEAwADAQAAAAABAAIDERIhMVFSkQQTQWFxodEUIoGSscHhMkJTYnKi8IKy0vH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABURAQEAAAAAAAAAAAAAAAAAAAAh/9oADAMBAAIRAxEAPwD2SXfs+0+oVVzupznRFkpT3jbLctN+HjWguWoGGFLXOso18U2sdhHm+ECObJ0tkuc0xluyClHc+cwBZKRO+c5gKZinDzPRFdLTwyWO8DJc7Ipw8/hPN+HjX8IikIzcatg9Sr0QuVlIGdG0SlP3kq612Hn8IHMMKcVsg2r7h6oiK41hvMJYlMgd2UiDbcirlaS5yX4eFaOtcLW8wiK6sKUZkpSvCYRXYf7fCnHc4iwCRBtnZsQPUsDwyXNrXbWjM/8AlZsY11f2+EHUeAyUy6tokLbtxSTfsb/b4R71Ro2V228qkHVRFyBhhTEV2Dn8IiK7DZvQMYYAPBaD9LeA9Epc4/bKq9TbTAAo1CW3ciulKWBRER4tbzCYRXYf7fCIaJCEjwSQ5SF8gi57iCKP9lzCI8CRAMpbT0QdWXJZcutOAeY/+VkV3pDEXLSMyKZsFcm7Z7tyFA43cuiIt954N9065RDIscd85dN6MnYuQ6IOkoUAoNpTlSNk7B0TUXYjkOiB2tk9viukriom2kch0TUnYjk3og6nJHOqzXOxzjMUjVuHTcmcydrifAeyC2j/AEt4BOucQ7nFTiOIIFM17hdO7cg6nPkpRXTLeJ/6lQc0n73ZN6IGH+xnsnJB1LLmk7FyHRabsRrNw6IOmiFKMwS8R6oUXYjkOiBYcRyHRB2rTXJN2I5N6IU3TlSNe5vRB0zzSQDW7j7BTLDtech0WbDucQg6UHOkuWNNonTNW4e4SuDj97sm9EFtIfNjuBTLlMK9zjl7Iydi5Dog6VpBcxpCukch0Tta7Ech0QXoC5BRouxHJvRZBJrhSNYsG0b0+sF4zTOhA7AtqW3BAocLwtTF4T6PDBJBaKpS5q+pbhCDlhuFLw91YJjo7Ta0eKI0dmEZIJFAuF4QjQWgtkBWSLNxWLBcMkE2RgC6sbNvFUMSsViXFAtFwWoC4IpzGF4zUYrhNtYtv/UpoLBKwWn1KcwxcEQmsF4zCweLxmERBbcFmwxSAkJHoUGpC8JS4TFYtvXXqW4QgYDcIQIECqDRmYRkpaRAaGkhoqFyAUheFJ8UBzaxt9CqlguGSFEXDJFB0WqojNPrQNozSUBcEIbBSNQ2e6BdIeC01iw7Rcm1gvGYT6sXJdS24IgawXjMLUheEIrABMALrEBuEIOR7hIyIsKswipU1LbggNGZgbkgWpFNqGYRksghrThdy6oaw4HcuqcG3iUHFBNrnNmaJrulVbK0osjOnW1wyPuqBCaBjpEvtc7dITRGknA5bRjWeA910FBxxohdIhjqjwNYklL3fjdy6rtWQcQiHA7hVt8UaTqu4eXVXH1n+PurIrhhkgSok1m6+d6bWHCeXVdahF+rw90RPWHA7l1Sd6YdRNWyqdc96qSgCgmYz8Dhvq9Jq2vlscTcQK0CUGHvDj7FAzdJP43IRYpcCA1220VLqQmg4g9343cuqGsOB3Ljeu5Tj2t/kPdFcxe78buXVZswSaJrAuqtv4ruQRHJrDtaeXVbWHA7l1VtIsHEJCUEYlJwlRIyu4oujvwO5cq07SiUGhxTtpZCSI0kn7HcVOKaiu0IOftR/GeSy6FkHGdFdMmnKdcpbfFHsrsfIdF1LTRXDGhOaJ07Nw6KrdGdjOQ6J9NPcKsCg5ho7ganch/tqfVux8grrIjmeHCXft3DebkSHY+Q6LaU6VGd/sUmubeEBMMznTrlKchWOCIpYuQWpi9akEBYHGfesMrB/tqSJo7iQaciJiobFTR3CR4n2VkVyjRXY+Q6IHRnyPf5DouuaDrEHJBgucJ0zt2DYZXJzoxtpV8An0Q93xP/AGKuggIb8fIdEsRrgCadm4dF0qWlHuO4FEJJ2PkOiV0MmU32GYqFR90Nc28I6wXoN3sU/AdEwpTlS2TsCFIIwnCl4e4QCLBc4SL7iJDaEo0V35OQ6Lpmig5ezOx8gpw4TiSKZqlsG2e7cu5Rgnvu8PdFIdFJEi45BMIb8fIdF0LIiGrdj5DoirLIOJkJpnUJT9gU2obhGSSHFAmJG2qo3Dcqa8f4HoigITbglMBsvpGSfWjfkeiBijfkeiIMHRWFoJaJ8E50RmEKEHSZAAtdkSrdqb+3lPRFHsrLKNSB0NmEZBDtYud5St2oXOyKIiNHZX3RUZWBHUNH2NySHSACQWkTMxVeAsIwudkindBbhCwhNmAGiw8iENdudkg2MAQa7DsNsxbJBUQG4RksITbgiIw35HotrRvyPRELqG4RktB0ZhnNotqqRMUb8j0SMjUSajXIzAJRV+yMwhZuiMFjZIN0pv7eU9EDpYud5SiD2NmEZBRfozAZURZOwXq3ahc7JQjaSJg0XSkROW8Gy1FHs7MDckTCbhH+qUjHB2HJPrtzskGMJosaJzHqqahuEKLoouNRGyu0Kwjjf5XdEGMFuEZLOhNuHiLEdaP8D0W1o35HoiEbo7aQFESldkrdkZhCg6L3gQCbbAVVulC5w/4noin7IzCsl7U39vKeiyFZYhIGvnLu2T2p9W/9cz0RCH6hwPssSs+C+2bQfE9EphO3ZHqgoyxK9qVtOybfKeqai+9uR6oJu+3ifQpysYTjKttRuN0r96BhPvbz6oCkiCo8E2rdOU22b+qOofe3I9UFiEqBpXBI6nUaqzLagqpRbPEeqpq3/rmeiV8FxH2jM2ZIM5aGkMN+0jI9UAHDaMjbmgq4KEQSa7gqhr725HqldDcQQS2sEVA9UDJUTCfe3I9UNW+qttZ39UGkqQBV4n1KTUPvbkeqZrHCqooGWSd/dVxKLGPIB7tcr0BISQz3RwT6t/65nopiC8VTbIbj1QMLU7lGi4VzGR6pmh97cj1QNQP+CyFF97cj1WQWP1j+J9QjTE0h0Zu/P3W7ML3eYoLBFchh94ibqpH6jtn0T6sXu8zuqDRD3/8Aj7rFynF0cG88SSUhgG85nqgs0ouK54cIzDZnzO6q/ZANrvMeqDQPqPAepXSufswvdmZ5zRMH9neY9UFlPSLG/wAm+qSHCmAZurE/qPVMdHG2fiZop3PCYFRGjC93mKSJClIAurmPqN0/ZEdSjpNg/kEghi93mPVB8EESMzxJKBy5KCo9munmR7pTDIrr8zuqDqJU/ubx9im7GL3eZ3VHsu85nrUguEVDUfs7zHqgyHMmt1Rl9Ru+UFn2HgpwnSa3gPRbUC9x4kn1QGitvcPE+iCrXAplzRYIa0kF1X7FYQt7vMeqC8Sw8CoQ3d0cB6I6v+XmKgdFAsq4Ej3QXpbllDsxvPmd1WQdHamYhmpHS2z+pKHEuPAe6eaBWaQC4mdoEp7p2J+0NxDNIRO1CiLkFO0NxNzR7Q3E3MKbR3vD3VKKBdc2kDMVT2q3aG4m5hSkhJBV0dmIZpHRxKQIPBJBNbvD3VC7eMkGgxgGgGdVVhTdpZiHjV6rE7lzxnVtun7FA8TS24gkdpIJFdhrusO1PNAmdqBte3EFu0NxDNToi5Yizigrr24m5hJFjNIqIz3pw1AhBUaQ3EMwt2huJuYUZJR9Q8fQoK69oscOE0sGKATOdZnYeCelwyRB4IMdJZfLjV6pImlMxBJpL+6ZVVH0RmgnE0oFpAM5g71XXtvCUlLRFyCnaG4hmtr24hmFNwqNWwqjG2ID2hmJuYRQkig5jSBnRtA23T3b0aTsIz+F0SQkgkykftGfwmovwjP4TaMQHO8PdW1o/wB7IOVrHgzo7L1VtLDzCuCDYmCDjc44eaBLsI83wq6SK28fYpSggKcyZAzlVSst3V2ppmc6Iz+FSSxCKQRHGxo82/gliBxkaIqN+4i7eqQPp8T6lUkiOek7Dz+Fml2EZ/CvJJ97fH0KDUX4Rn8JTDfV3bDf8LqMUIhwO1BBtLDzQe4ist5rrClpQ7juBQQm7CPN8Kb6cwQBVsnbUdst6sgipOpEVtHm+E2sdXJo83wnopYf1O4D3QLEpEEURWDt+EKTsIz+FdEhEc9J2EZ/CpRfhGfwhpP0rqL0HK6G82tyPwmZTq7nMK4iA7U6Dn72HmFl0yWQcQhnEbtnRYw/2dySmO0FwLgK0HaQ3G3MIpjAGwkZTv2hBkCX3O8ZH1CI0hmJuYQEZp+5uYRFA1zqqZq2iU/TcnGjnG719VKBHaCZuFgtI3roOksxt8wQTdoxNryd9SHZP3dy6Kg0hmJuYRMdmNuYQQGjmcqbrJzq6J+yWd52aGvbTnSEi2ozEjXerCO3E3MIqQ0X9jt51pHQiDKkb9nRX17cTcwoR47Q4GkJEGudVt6Aas4ncuiGpF5nfV/82odobjGYQbpDZfW3MIN2fbSd4yPKUlSv6aZr3DlUkOkNxNzCwitDh3hbeJWFBYaMfyOR7ObC8kXVeyftLMTfMEO0MxtzCImNE/d3Loldo5Eu+4zMtl3BX17MTcwpRo7e6Q4EBwnIiq21FY6J+zs0ezfsbAMr1QaQzE3MImO3E3MIIPgy+411f6YS6o4ncuifSY7ZTpAyInIzkp9pZjGaAiENpJ48JJTo/wCzuUvRBsds/rbmETpDMTcwgYTaKnHJvRUbox2vdw2LniRGkGsWbCF1t0lmJvmCITsxxuzWVO0sxt8wWQMIbbhktqxcFLtH6nl1WEc4Ty6ooaWwBplIFXoC5c8d5c0iWck3aDgOY6oLFguWoC5SEc/jd/X/ANLGOfxu/r1RBjVFvH2KB4BSjvcaJDSCDOR4EbOKnrImDn8IrpquCElDXOwcwmER2A5jqiLwWgzq2+wT6ttwyXNDjOaD3Ca57NqoNIOE8uqKrQFwQdDFwUxHOE8kTHOE8uqDaK3u1ytPqVUsC5oMQtEqM6zYRtM1QaQT9js29URUMFySOJNdwKGuP43f16qcWIXNcKDhMbZe00U/gtVcFz04mDn8Ia52DmiOghFgm6zZ7hQEV+A5jqmbEcDOibJSq4oOkwxcFqAuCiNIO1hGXVHXnCeXVBXVi4KUFopus2S5zREc4Ty6qbXkOJozBAuqlPqiumgEKAuUhpBsoOzb1R1x/G7+vVEVoC5ZS1x/G/l1RQThfdx9gnkothume9bu3Ju9eMvlA4QIqSTdOUxl8rEuvGXygvo57o4KgK4YcNwFT+Sdzn4hkEHWsuGm6rv2mVg4piXYzkEDi138vYJSVF0N06nGu2y3JYhwEy6zcOiDoJQYe8OB9Qk1LsXIdFhDdUaVY3W/6SC6EkknXjxHyg5zhtGR6oKSW0c1u4qbqV4y+UghmZIdKaDumsuSbx93JI6I6RNOyuoBB3TUIv1D+J9QpTdjOQU4jXGukZ8BKV0kFXOTLnouxch0TshuInTOQ2GVyBnGy6bfUK65jCdZSu2XKknXjJA5CxSd7dkeqALiJzGXygdv1jgV0TXCWEkGciLt+4pwHj75+CDsmsuOk/EMlkFESk7OynKiPpJs3hV7OzCEEHGThwPsgXK50duEIdmbcMkCMcJWhYgXpTAaHSkLJ2b0xgNwhBN4rbXtPoUyYQm4QgdHZgCAJYth4JmQWFxFESAHqVYaKwWNGSDFKj2VuwKcXR2gCoVuAsvKCilHNXiPVW7OzCEeztwhBBzgjDcLwqdlbcMlOLAAlUKyBZsQMZXqUYd11exU1DcIWEJtlEIFQTmAzAMkhhMmAGis+xQFPAs8T6lMNEZhbksdGbcEAKKU6M2RmAjBgMog0RWAeSAOUobhRFexdHZ2YQgdGbcMkEWurVCRes/RhKchVM2JWQWkAyFg2IHkFkvZ2YAsgs76x/E+oTC1ZZAUQssghF+r/j7pSisg0P3TRFlkE9H+p3+2ldQWWQZTjWD+TfVZZAzkVlkBClpFg/kEFkCpW2+CKyCrlz/c3/bCssg6wissgBsPBTh/SOA9FlkFAsssgESw8CoQ7BwHossgKyyyD//Z"
+              alt="Smiley face"
+              height="300"
+              width="300"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var element = document.getElementById("my-claimsNav");
+  element.classList.add("active");
+</script>
+{% endblock content %}

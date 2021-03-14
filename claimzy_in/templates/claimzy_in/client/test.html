@@ -1,0 +1,575 @@
+<div class="main-container m-0 p-0 ">
+  <div class="float-sm"  id="btn333">
+    <div class="fl-fl float-bn " style=" filter: drop-shadow(0 0 0.25rem gray);" id="buyNow" >
+        <div class="row">
+          <div class="col-2  ">
+              <button class="btn  btn-warning btn-buy  "    style="transform: rotate(-90deg);">Buy Now</button>
+          </div>
+          <div class="col-10">
+            <form class="  text-center bg-light p-4"   action="{% url 'user-register' %}" method="POST">
+
+              <div class="container">
+                        <img   src="{% static 'claimzy_in/img/logo-dark.png' %}" alt="claim"  height="45"  class="  p-1 " alt="Claim Now"><i class="fas fa-times float-right close" style="font-size: large;"></i>
+                        <br>
+                        <br>
+                        
+                      <p>Your phone is a storehouse! And you need to protect it from everyday damage(s). Take a Claimzy protection plan today.</p>
+                      <hr>
+                        {% csrf_token %}
+                      <div class="form-group">
+                        <label for="brand"><span style="color: red;"></span>Mobile Brand :</label>
+                                      
+                        <select class="form-control" id="brand" name="brand">
+                          <option selected value="" disabled>Select Mobile Brand</option>  
+                          <option value="Acer">Acer</option>
+                                                                                                                                                              <option value="Airtel">Airtel</option>
+                                                                                                                                                              <option value="Alcatel">Alcatel</option>
+                                                                                                                                                              <option value="Apple">Apple</option>
+                                                                                                                                                              <option value="Asus">Asus</option>
+                                                                                                                                                              <option value="Blackberry">Blackberry</option>
+                                                                                                                                                              <option value="Bose">Bose</option>
+                                                                                                                                                              <option value="Boss">Boss</option>
+                                                                                                                                                              <option value="Canon">Canon</option>
+                                                                                                                                                              <option value="Coolpad">Coolpad</option>
+                                                                                                                                                              <option value="Creative">Creative</option>
+                                                                                                                                                              <option value="Dell">Dell</option>
+                                                                                                                                                              <option value="F & D">F & D</option>
+                                                                                                                                                              <option value="Fossil">Fossil</option>
+                                                                                                                                                              <option value="Gionee">Gionee</option>
+                                                                                                                                                              <option value="Google">Google</option>
+                                                                                                                                                              <option value="HCL">HCL</option>
+                                                                                                                                                              <option value="HP">HP</option>
+                                                                                                                                                              <option value="HTC">HTC</option>
+                                                                                                                                                              <option value="Haier">Haier</option>
+                                                                                                                                                              <option value="Honor">Honor</option>
+                                                                                                                                                              <option value="Huawei">Huawei</option>
+                                                                                                                                                              <option value="Iball">Iball</option>
+                                                                                                                                                              <option value="Intex">Intex</option>
+                                                                                                                                                              
+                                                                                                                                                              <option value="JBL">JBL</option>
+                                                                                                                                                              <option value="Karbonn">Karbonn</option>
+                                                                                                                                                              <option value="LG">LG</option>
+                                                                                                                                                              <option value="Lava">Lava</option>
+                                                                                                                                                              <option value="LeEco">LeEco</option>
+                                                                                                                                                              <option value="Lenovo">Lenovo</option>
+                                                                                                                                                              <option value="Mi">Mi</option>
+                                                                                                                                                              <option value="Micromax">Micromax</option>
+                                                                                                                                                              <option value="Microsoft">Microsoft</option>
+                                                                                                                                                              <option value="Motorola">Motorola</option>
+                                                                                                                                                              <option value="Nikon">Nikon</option>
+                                                                                                                                                              <option value="Nokia">Nokia</option>
+                                                                                                                                                              <option value="OnePlus">OnePlus</option>
+                                                                                                                                                              <option value="Oppo">Oppo</option>
+                                                                                                                                                              <option value="Panasonic">Panasonic</option>
+                                                                                                                                                              <option value="Philips">Philips</option>
+                                                                                                                                                              <option value="Realme">Realme</option>
+                                                                                                                                                              <option value="Samsung">Samsung</option>
+                                                                                                                                                              <option value="Sansui">Sansui</option>
+                                                                                                                                                              <option value="Siemens">Siemens</option>
+                                                                                                                                                              <option value="Sony">Sony</option>
+                                                                                                                                                              <option value="Sony Ericsson">Sony Ericsson</option>
+                                                                                                                                                              <option value="Spice">Spice</option>
+                                                                                                                                                              <option value="Tecno">Tecno</option>
+                                                                                                                                                              <option value="Toshiba">Toshiba</option>
+                                                                                                                                                              <option value="Videocon">Videocon</option>
+                                                                                                                                                              <option value="Vivo">Vivo</option>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="plan"><span style="color: red;"></span>Mobile's Price on Invoice:</label>
+                                      
+                        <select class="form-control" id="plan"  name="plan">
+                          <option selected value="" disabled>Select Price</option>  
+                          <option value="silver">₹5,000 - ₹9,999</option>
+                          <option value="silver">₹10,000 - ₹14,999</option>
+                          <option value="silver">₹15,000 - ₹19,999</option>
+                          <option value="gold">₹20,000 - ₹24,999</option>
+                          <option value="gold">₹25,000 - ₹29,999</option>
+                          <option value="gold">₹30,000 - ₹34,999</option>
+                          <option value="gold">₹35,000 - ₹40,000</option> 
+                        </select>
+                      </div>
+                      <button    style="font-size: 80%;
+      border-radius: 5rem;
+      letter-spacing: .1rem;
+      font-weight: bold;
+      padding: 1rem;
+      color: white; 
+      transition: all 0.2s;" class=" button btn text-light  btn-success text-uppercase"  type="submit">Select Plan</button>
+                      
+                    
+                    </div>
+                  
+                  </form>
+          </div>       
+        </div>
+    </div>
+   
+  </div>
+       
+<header style="position: relative;top: -168px;">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide One - Set the background image for this slide in the line below -->
+      <div class="carousel-item carousel-itemz active" style="background-image: url('static/claimzy_in/img/background (1).jpg')">
+        <div class="carousel-caption  ">
+          <img id="float-right" src="{% static 'claimzy_in/img/logo-dark.png' %}" alt="claim"  height="75"  class="  p-1 " alt="Claimzy">
+
+          
+          <p class="lead text-dark">Claimzy an all in one Service Provider.</p>
+          <h2 class="  btn-buy"><button type="button" class="btn btn-success">Buy Now</button>
+          </h2>
+        </div>
+ 
+      </div>
+      <!-- Slide Two - Set the background image for this slide in the line below -->
+      <div class="carousel-item carousel-itemz overlay" style="background-image: url('static/claimzy_in/img/background (2).jpg')">
+        <div class="carousel-caption  ">
+          <img id="float-right" src="{% static 'claimzy_in/img/logo-dark.png' %}" alt="claim"  height="75"  class="  p-1 " alt="Claimzy">
+
+          
+          <p class="lead text-dark">Claimzy an all in one Service Provider.</p>
+          <h2 class="  btn-buy"><button type="button" class="btn btn-success">Buy Now</button>
+          </h2>
+        </div>
+      </div>
+      <!-- Slide Three - Set the background image for this slide in the line below -->
+      <div class="carousel-item carousel-itemz" style="background-image: url('static/claimzy_in/img/background(3).jpg')">
+        <div class="carousel-caption  ">
+          <img id="float-right" src="{% static 'claimzy_in/img/logo-dark.png' %}" alt="claim"  height="75"  class="  p-1 " alt="Claimzy">
+
+          
+          <p class="lead text-dark">Claimzy an all in one Service Provider.</p>
+          <h2 class="  btn-buy"><button type="button" class="btn btn-success">Buy Now</button>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+  </div>
+</header>
+                
+                
+    <div class="container about-section card card-gradient4 " >
+      <div class="  text-center mt-5 mb-3 py-4 card-body text-center"> <h4 class="action-text  " style="color:#000;"><span>WHO ARE WE?</span></h4></div>
+
+      <p class="p-5 headings text-left">ClaimZy's Custom Is to Provide Trusted, Easy and Hassle Free Mobile Repair Service. In Case of Any Accidental Damage to The Phones.We Offers Most Affordable Inestimable Mobile Repairing Solutions For Guaranteed Period Of Two Year's and That To Be On Doorsteps. 
+ 
+        <br><br>
+        With ClaimZy, We Aims To Help Users Opt Only For Policies That Make Sense To Them.
+        A Speedy Response in Such Scenarios Is an Great Sense Of Responsibility and,We Are The One Who Ensures It. </p>
+        <div   >  
+          <div id="about-anim"  style="height: 250px; "></div>
+        </div> <p class="p-5 headings text-left"> 
+          Our Vison Is To Augment. Our Service Support From Mobile Phone Damages to Other Electronic Gadgets Compromising Owen, TV, Home Appliances In Comming Future.</p>
+
+      
+    </div>
+    <div class="container   my-4 arrow-down" style="background:white; "  >
+      
+        <div class="  text-center mt-5 mb-3 py-4"><h4 class="action-text  " style="color:#000;"><span>WHAT MAKES US SPECIAL?</span></h4></div>
+        
+          <div class="row row1">
+            <div class="col-sm ">
+                    <!-- Card -->
+                        <div class="card card1 card-gradient3">
+              
+                          <!-- Card content -->
+                          <div class="card-body text-center">
+                            
+                            <div class="p-5" id="anim2" class="m-auto" > </div>   
+                              
+                             
+                            <h4 class="card-title text-dark text-center "><a>Unlimited Repairing Solutions</a></h4>
+                            <!-- Text -->
+                            <p class="card-text text-dark">Our experts pick your damaged phone from your doorstep, repair it and deliver it to you in the shortest time span possible. We guarantee you the best service.</p>
+                            
+                          </div>
+
+                        </div>
+                  <!-- Card -->
+            </div>
+            <div class="col-sm">
+                  <!-- Card -->
+                  <div class="card card2 card-gradient2">
+              
+                    <!-- Card content -->
+                    <div class="card-body text-center">
+                      <div id="anim3" class="m-auto" > </div> 
+                       
+                      <!-- Title -->
+                      <h4 class="card-title text-dark text-center"><a>Zero Hidden Charges</a></h4>
+                      <!-- Text -->
+                      <p class="card-text text-dark">No hidden charges or fees required at the time of claiming. Once you are subscribed with Claimzy's services, you don’t need to pay additional fees for any repair needed.</p>
+                      
+                    </div>
+
+                  </div>
+            <!-- Card -->
+            </div>
+            <div class="col-sm">
+                    <!-- Card -->
+                  <div class="card card3 card-gradient3">
+              
+                    <!-- Card content -->
+                    <div class="card-body text-center">
+
+                      <div id="anim4" class="m-auto p-5" > </div> 
+
+                      <!-- Title -->
+                      <h4 class="card-title text-dark text-center"><a>Free Pick-Up & Delivery</a></h4>
+                      <!-- Text -->
+                      <p class="card-text text-dark">Say good bye to long queues at the service center. We pick your device up and deliver it right to your doorstep saving your time and money.</p>
+                      
+                    </div>
+
+                  </div>
+            <!-- Card -->
+            </div>
+          </div>
+
+
+          <!--Row 2-->
+          <div class="row row2">
+            <div class="col-sm">
+                    <!-- Card -->
+                        <div class="card card4 card-gradient3">
+              
+                          <!-- Card content -->
+                          <div class="card-body text-center">
+                            <div id="anim5" class="m-auto p-5" > </div> 
+
+                            <!-- Title -->
+                            <h4 class="card-title text-dark text-center"><a>Upto 100% Buyback</a></h4>
+                            <!-- Text -->
+                            <p class="card-text text-dark">If you are planning on purchasing a new phone, we will buy back your phone at the assured price. When you buy a new phone from us, we will buy back your device at a fixed price.</p>
+                            
+                          </div>
+
+                        </div>
+                  <!-- Card -->
+            </div>
+            <div class="col-sm">
+                  <!-- Card -->
+                  <div class="card card5 card-gradient2">
+              
+                    <!-- Card content -->
+                    <div class="card-body text-center">
+                      <div id="anim6" class="m-auto p-5" > </div> 
+
+                      <!-- Title -->
+                      <h4 class="card-title text-dark text-center"><a>Easy Online Claim</a></h4>
+                      <!-- Text -->
+                      <p class="card-text text-dark">Just fill the online form to file your claim. You need to provide customer ID(given at the time of registration), issue with your phone, contact number and address.</p>
+                      
+                    </div>
+
+                  </div>
+            <!-- Card -->
+            </div>
+            <div class="col-sm">
+                    <!-- Card -->
+                  <div class="card card6 card-gradient3">
+              
+                    <!-- Card content -->
+                    <div class="card-body text-center">
+                      <div id="anim7" class="m-auto p-5" > </div> 
+
+                      <!-- Title -->
+                      <h4 class="card-title text-dark text-center"><a>Guaranteed Repair Or 100% Refund</a></h4>
+                      <!-- Text -->
+                      <p class="card-text text-dark">We promise you to provide guaranteed repair and services. Our experienced and friendly team is dedicated to offer you the best repair solution for your mobile phone.</p>
+                      
+                    </div>
+
+                  </div>
+            <!-- Card -->
+            </div>
+          </div>
+    </div>
+
+    
+     
+       
+
+    <div class=" "  id="wall">
+
+        <div class="spacer s2"></div>
+            <div id="trigger1" class="spacer s0"></div>
+            
+            <div id="pin1" class="box2 pt-5">
+
+                        
+              <div class="text-center my-5"><h1 class="headings"><span class="damaged">Damages covered</span></h1></div>
+              
+              <img class=" mx-auto" style=" max-height: 520px;width:  auto;display: block; margin-top: auto;height:100%;"  src='/static/claimzy_in/img/mobile-ios-full (1).png'   >
+              <div class="centered headings m-auto" >
+                  <div id="name" class="mt-5 text1 ">
+                    
+                    <br>
+                    <br><br>Liquid/Water <br><br><br> Damage
+                  </div> 
+                  
+            </div>
+            </div>
+            <div class="spacer s2"></div>
+            <div id="trigger2" class="my-3"></div>
+            <br><br><br><br><br><br>
+            <div class="spacer s2"></div>
+            <div id="trigger3" class="my-3"></div>
+            <br><br><br><br><br><br>
+
+            <div class="spacer s2"></div>
+            <div id="trigger4" class="my-3"></div>
+            <br><br><br><br><br><br>
+
+            <div class="spacer s2"></div>
+            <div id="trigger5" class="my-3"></div>
+    
+            
+            <div class="spacer s2  "> </div><br><br><br><br><br><br>
+            <div id="trigger6" class="my-5"></div>
+    
+
+
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+      
+    <div class="spacer s2  "> </div> 
+    <div id="trigger6" class=" "></div>   
+
+    <section class="d-none"> 
+        <div class="shape-separator-accent "  ></div>
+            <div class="  p-3" style="background-image: linear-gradient(180deg,#fbd213,#ef6c00); ">
+                <h2 class="action-text   text-center" style="color: #000;">REGISTER NOW</h2> 
+            
+            
+                <div class="row row1 text-center">
+                  <div class="col-sm ">
+                          <!-- Card -->
+                              <div class="card card3 card-gradient3">
+                    
+                                <!-- Card content -->
+                                <div class="card-body ">
+          
+                                  <!-- Title -->
+                                  <h4 class="action-text  card-title text-center"><a>SILVER</a></h4>
+                                  <h4 class="action-text  card-title text-center"><a>₹999/- Only</a></h4>
+
+                                  
+                                  <!-- Text -->
+                                  <p class="card-text text-dark">If your mobile price is between 5k to 20k, you can avail this offer.</p>
+                                  <a href="http://127.0.0.1:8000/register/" class="btn btn-info" role="button">SELECT</a>
+                                </div>
+          
+                              </div>
+                        <!-- Card -->
+                  </div>
+                  <div class="col-sm">
+                        <!-- Card -->
+                        <div class="card card2 card-gradient2">
+                     
+                          <!-- Card content -->
+                          <div class="card-body "  >
+          
+                            <!-- Title -->
+                            <h4 class="action-text  card-title  text-center"><a>GOLD</a></h4>
+                            <h4 class="action-text  card-title text-center"><a>₹1999/- Only</a></h4>
+
+                            <!-- Text -->
+                            <p class="card-text text-dark">If your mobile price is between 20k to 40k, you can avail this offer.</p>
+                            <a href="{% url 'register" class="btn btn-info" role="button">SELECT</a>
+                          
+                          </div>
+                         
+                        </div>
+                  <!-- Card -->
+                  </div>
+                  
+                </div>
+            
+              </div>
+        <div class="shape-separator m-0" style="transform: rotate(180deg);"></div>
+      </section>
+    <div class=" "  > 
+
+        <div class="container my-0 p-0 ">
+          <div class="  text-center mt-5 mb-3 text-light py-4"><h3 class="captionsBlack"><span>Mobile Brands we Service</span></h3></div>
+            
+          <div class="slides mx-auto" style="width:100%" >
+            
+                <img class="m-auto slide-img" class="m-auto" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (1).png" />
+            
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (2).png" />
+            
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (3).png" />
+            
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (4).png" />
+            
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (5).png" />
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (6).png" />
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (7).png" />
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (8).png" />
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (9).png" />
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background (10).png" />
+            
+                <img class="m-auto slide-img" data-u="image" src="/static/claimzy_in/img/mobileLogos/Background.png" />
+            
+        </div>   
+
+
+        </div>
+    </div>  
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">			
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="  text-center mt-5 mb-3 text-light py-4"><h3 class="captionsBlack"><span>Customer Testimonials</span></h3></div>
+            <!-- Carousel indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>   
+            <!-- Wrapper for carousel items -->
+            <div class="carousel-inner">
+              <div class="item carousel-item active">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="testimonial">
+                      <p>Damaged my mobile's Camera while shooting a video for TikTok, Claimzy's Insurance plan came in as a help. No Service Centre visits: Claimzy's Home Pickup & Delivery was the best service.</p>
+                    </div>
+                    <div class="media">
+                      
+                      <div class="media-body">
+                        <div class="overview">
+                          <div class="name"><b>Pranita Bichkar</b></div>
+                          <div class="details">Housewife / Pune</div>
+                          <div class="star-rating">
+                            <ul class="list-inline">
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                            </ul>
+                          </div>
+                        </div>										
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="testimonial">
+                      <p>Claimzy provided me with the service they assured while I opted In. Loved the service and prices are user friendly.</p>
+                    </div>
+                    <div class="media">
+                
+                      <div class="media-body">
+                        <div class="overview">
+                          <div class="name"><b>Nishant Narwade</b></div>
+                          <div class="details">College Student / Pune</div>
+                          <div class="star-rating">
+                            <ul class="list-inline">
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                            </ul>
+                          </div>
+                        </div>										
+                      </div>
+                    </div>
+                  </div>
+                </div>			
+              </div>
+              <div class="item carousel-item">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="testimonial">
+                      <p>Claimzy's support was speedy and satisfying. Required Service on Emergency situations was delivered when I accidently damaged my mobile screen with important data in it.</p>
+                    </div>
+                    <div class="media">
+                       
+                      <div class="media-body">
+                        <div class="overview">
+                          <div class="name"><b>Vaibhav Pawar</b></div>
+                          <div class="details">Business Owner / Pune </div>											
+                          <div class="star-rating">
+                            <ul class="list-inline">
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                            </ul>
+                          </div>
+                        </div>										
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="testimonial">
+                      <p>I broke my glass and Claimzy's Insurance plan was the best decision I made when I bought my new Phone.</p>
+                    </div>
+                    <div class="media">
+                       
+                      <div class="media-body">
+                        <div class="overview">
+                          <div class="name"><b>Sanjiv Kumar</b></div>
+                          <div class="details">Modern SteelWorks / Pune</div>
+                          <div class="star-rating">
+                            <ul class="list-inline">
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+                            </ul>
+                          </div>
+                        </div>										
+                      </div>
+                    </div>
+                  </div>
+                </div>			
+              </div>
+               
+            </div>
+            <!-- Carousel controls -->
+            <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+              <i class="fa fa-chevron-left"></i>
+            </a>
+            <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+              <i class="fa fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</div>  

@@ -1,0 +1,32 @@
+{% extends "claimzy_in/client.html" %}
+
+{% load static %}
+
+{% block content %} 
+<div class="card m-auto "  >
+              
+    <!-- Card content -->
+    <div class="card-body text-center ">
+       
+        
+      <img src="{% static 'claimzy_in/anim/payment-successful.gif' %}" alt="this slowpoke moves"  width=450/>
+ 
+      <!-- Text -->
+       
+    </div>
+
+  </div>
+<script>
+
+
+var loc = "https://assets7.lottiefiles.com/packages/lf20_7W0ppe.json";
+                        lottie.loadAnimation({
+                            container: document.getElementsById('status-payment'), // the dom element that will contain the animation
+                            renderer: 'svg',
+                            loop: false,
+                            autoplay: true,
+                            path: loc // the path to the animation json
+                        }); 
+
+</script>
+{% endblock content %}

@@ -1,0 +1,728 @@
+
+{% load static %}
+
+{% block content %} 
+ 
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+      
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'claimzy_in/img/apple-icon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'claimzy_in/img/favicon.ico' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <!-- Title Page-->
+    <title>Claimzy - Terms of Services</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'claimzy_in/css/client/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'claimzy_in/css/client/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'claimzy_in/css/client/main2.css' %}"  rel="stylesheet" type="text/css"  />
+    <style> 
+
+        .pricing .card {
+          border: none;
+          border-radius: 1rem;
+          transition: all 0.2s;
+          box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+          margin: 20px;
+          background-image: linear-gradient(60deg,#FC6562,#FFD66F); 
+        }
+        
+        .pricing .card2 {
+          border: none;
+          border-radius: 1rem;
+          transition: all 0.2s;
+          box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1); 
+          background-color: #ffffff;
+          background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+          margin: 20px;
+        }
+
+        .pricing hr {
+          margin: 1.5rem 0;
+        }
+        
+        .pricing .card-title {
+          margin: 0.5rem 0;
+          font-size: 0.9rem;
+          letter-spacing: .1rem;
+          font-weight: bold;
+        }
+        
+        .pricing .card-price {
+          font-size: 3rem;
+          margin: 0;
+        }
+        
+        .pricing .card-price .period {
+          font-size: 0.8rem;
+        }
+        
+        .pricing ul li {
+          margin-bottom: 1rem;
+        }
+        
+        .pricing .text-muted {
+          opacity: 0.7;
+        }
+        
+        .pricing .btn {
+          font-size: 80%;
+          border-radius: 5rem;
+          letter-spacing: .1rem;
+          font-weight: bold;
+          padding: 1rem;
+          opacity: 0.7;
+          transition: all 0.2s;
+        }
+        
+        /* Hover Effects on Card */
+        
+        @media (min-width: 992px) {
+          .pricing .card:hover {
+             
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+          }
+          .pricing .card2:hover {
+ 
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+          }
+          .pricing .card:hover .btn {
+            opacity: 1;
+          }
+        }
+        
+        
+        </style>
+</head>
+<body>
+ 
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4  card2 mb-5 mb-lg-0  text-center ">
+                <div class="card-body">
+                    <img id="float-right" src="{% static 'claimzy_in/img/logo-dark.png' %}" alt="claim"  height="45"  class="  p-1 " alt="Claimzy">
+                     <br><br>
+                     <div LANG="en-US" DIR="LTR" STYLE="  padding-top: 0.67in; padding-bottom: 0.17in; padding-left: 0.67in; padding-right: 0.67in">
+                        <H1 CLASS="western" ALIGN=LEFT STYLE="margin-left: 0.5in; margin-top: 0.21in; margin-bottom: 0.05in; background: #ffffff">
+                        <FONT COLOR="#212121">                            <FONT SIZE=4 STYLE="font-size: 16pt"><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">ClaimZy</SPAN></SPAN></FONT></FONT><FONT COLOR="#212121"><FONT SIZE=4 STYLE="font-size: 16pt"><SPAN STYLE="font-weight: normal">-
+                        Terms and Conditions</SPAN></FONT></FONT></H1>
+                        <P ALIGN=LEFT STYLE="margin-left: 0.5in; margin-top: 0.21in; margin-bottom: 0.05in; background: #ffffff">
+                        <BR><BR>
+                        </P>
+                        <OL>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>Terms
+                            of</B></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><B>
+                            </B></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>Coverage</B></SPAN></FONT></FONT></P>
+                        </OL>
+                        <OL TYPE=a>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3>T</FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">his
+                            subscription plan is applicable for a period of 24 months(1 year
+                            manufacturer warranty + 1 year claimzy warranty) from the date of
+                            Invoice bill.</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            </FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3>Customer must enter
+                            into a contract with the Service within </FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">14</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            days from the date of the purchase of the Service Product. </FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Claimzy
+                            subscription plan only applies to items purchased as new. There is
+                            no claim for items described as 'used','second hand', or
+                            'refurbished'.</SPAN></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3>The Customer has to
+                            attach </FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">any
+                            Government ID proof, Product Photos and Self</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            attested photocopy of the </FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">GST
+                            bill</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>/invoice
+                            along the contract.</FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                             <FONT FACE="poppins"><FONT SIZE=3>Services of the
+                            Service Provider can be availed upon payment of Annual Maintenance
+                            Charge by the Customer.</FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                             <FONT FACE="poppins"><FONT SIZE=3>Services of the
+                            Service provider are applicable </FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">only
+                            if the device is damaged</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            and not applicable in case of theft or robbery.  </FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">This
+                            is limited to products with manufacturer's warranty that are
+                            purchased in selected cities within defined geographic boundary of
+                            the Republic of India. Information regards with claimzy services
+                            will be provide at the time of purchasing the product if applicable
+                            in your city. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3>The Service
+                            provider or any member as appointed by the service provider shall
+                            inspect the product before entering into an agreement with the
+                            customer</FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">.</SPAN></FONT></FONT></P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">   
+                             <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>2)
+                         Product Covered</B></SPAN></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">   
+                                   <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">Only
+                        Smart Phones.</SPAN></SPAN></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><BR><BR>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>3)
+                         Scope of Coverage</B></SPAN></FONT></FONT></P>
+                        <OL TYPE=a>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">Claimzy
+                            hereby agree to give and receive respectively, the maintenance
+                            services required to keep the Product covered in proper working
+                            condition during the Term.</SPAN></SPAN></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3>The Service
+                            Provider shall repair the Service Product from the damage and shall
+                            not charge the customer any service fee , labour charges , product
+                            part charge or change, door service(collection and delivery of the
+                            service produc</FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">t</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>)
+                            fee or any ancillary charge from the customer</FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">.
+                            </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Customer
+                            reserves the right to approach the Service Provider to avail the
+                            services of the Contract even during the duration the Manufacturer’s
+                            Warranty.</SPAN></FONT></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">All
+                            defective components replaced by claimzy with a new component or
+                            component equivalent to new(if needed) in performance when used
+                            shall become property of claimzy and customer shall not claim any
+                            right to the same.</SPAN></FONT></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">In
+                            case replacement is offered or refund is made, the defective product
+                            shall become claimzy's property and taken back and subscription plan
+                            for the product will be terminated without any refund.</SPAN></FONT></FONT></FONT></P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT COLOR="#212121">
+                               </FONT><FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>4)
+                         Covered in Claimzy</B></SPAN></FONT></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT COLOR="#212121">
+                                           </FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Service</SPAN></FONT></FONT><FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3>
+                        Provider will cover following issues:-</FONT></FONT></FONT></P>
+                        <OL TYPE=I>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3>Defect
+                            </FONT></FONT></FONT><FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">LCD</SPAN></FONT></FONT></FONT><FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3>
+                            </FONT></FONT></FONT><FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">B</SPAN></FONT></FONT></FONT><FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3>reakdown.</FONT></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">P</SPAN></FONT></FONT></FONT><FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3>hone
+                            charging port issues.</FONT></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">P</SPAN></FONT></FONT></FONT><FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3>arts
+                            break down, (If it can be replace/repair) cover it.</FONT></FONT></FONT></P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-left: 0.5in; margin-bottom: 0.14in; line-height: 150%">
+                         
+                        </P>
+                        <OL TYPE=a>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Liquid
+                            Damage : </SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>The
+                            Customer has to inform the Service provider of Liquid Damage to the
+                            Service product within 24 hrs. Repairs/ Services to the Service
+                            Product shall depend upon the damage caused on account Liquid
+                            Damage.  Service Provider does not guarantee repair upon Liquid
+                            Damage to the Service Product.</FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Screen
+                            Damage:</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            Service Provider will be liable to provide service only upon damage/
+                            cracking of 30 percent </FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">of</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            the screen of the service product. Service Provider shall not liable
+                            to provide service in case of a scratch to the screen or screen
+                            guard of the service product. </FONT></FONT>
+                            </P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">   
+                          <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>5</B></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>)
+                         Not Covered in Claimzy</B></SPAN></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">   
+                           <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">Service
+                        Provider is not applicable in either of the following cases:</SPAN></FONT></FONT></P>
+                        <OL TYPE=a>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">Motherboard
+                            malfunction. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">Any
+                            internal part that would be not available in market. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">The
+                            service provider shall not be liable to provide service in case of
+                            software.</SPAN></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Claimzy
+                            shall not be responsible for data loss, software program or other
+                            information stored. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">Issues
+                            or costs arising due to unauthorised repairs carried out on the
+                            Covered Product, improper usage and defects due to electrical
+                            wiring, plug(s), switches, extension box, inverter, grounding
+                            defects, damages due to sudden surge fluctuation, fluctuating
+                            voltage, loose contacts etc.; and damages resulting from external
+                            causes like rat bite(s), insect infestation or intrusion. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Breakdown</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            on account of any accessories not originally provided by the
+                            manufacturer of the Service Product. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Issues</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            arising as a result of non-operating or cosmetic deterioration that
+                            do not affect the functionality or operation of the Service Product.
+                            </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">Performing
+                            actions on the Service Product that cause the Manufacturer's
+                            Warranty to be void, including but not limited to Service Products
+                            that have been modified, altered, adjusted or repaired, serviced,
+                            moved, removed, installed, by unauthorised persons. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Breakdown</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            or consumption of consumable products such as chargers, earphones,
+                            headphones </SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">is
+                            not covered under the policy. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Breakdown</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            caused by a failure to follow the manufacturer's installation or
+                            operating instructions. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Service</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            </SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">of
+                            Product</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">(s)
+                            </SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">on
+                            which the manufacturer's label or logo or</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            IMEI/serial numbers </SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">have
+                            been defaced or remove. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">Damage
+                            to computer hardware, software and data caused by, including, but
+                            not limited to virus, application programs, network drivers, source
+                            code, object code or proprietary data, support, configuration,
+                            installation or reinstallation of any software or data. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                             <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Any</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            fraudulent descriptions or misrepresentations by the Customer. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Malfunction</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            of the Service Product resulting from inadequate safekeeping,
+                            storage at high temperatures or humidity, storage with mothballs or
+                            leakage of batteries. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Damage</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            occurring due to natural calamities like floods, earthquakes and
+                            acts of God. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Products</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            used for commercial uses not covered. </SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Defects</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-IN">
+                            not covered by the Manufacturer's Warranty of the Covered Product.</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>	</FONT></FONT></P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">   
+                        <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>6)
+                         Payment</B></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><B>
+                        Terms</B></FONT></FONT></P>
+                        <OL TYPE=a>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3>The Annual
+                            Maintenance Charge shall be payable to the Service Provider in the
+                            manner and mode as specified by the Service Provider.</FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">If
+                            due to any reasons, the product is replaced by the original
+                            manufacturer with a product of different size/capacity/mode/brand,
+                            Customer shall be responsible to make payment of differential amount
+                            to</SPAN></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Claimzy
+                            shall however, not be responsible for refunding if replacement of
+                            product by the original manufacturer with a product of different
+                            size/capacity/model/ brand leads to reduction in charges for
+                            services.</SPAN></FONT></FONT></P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none"><B>7)
+                         Other Services</B></SPAN></SPAN></FONT></FONT></FONT></FONT></P>
+                        <OL TYPE=a>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                            <FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">
+                            </SPAN><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none"><B>Warranties</B></SPAN></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">-
+                            Any</SPAN></SPAN></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN STYLE="text-decoration: none">
+                            form of tampering or modification of the Software provided shall not
+                            be covered under such Service. </SPAN></FONT></FONT></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                            <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><B>Door
+                            Step Assistance</B></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">-
+                            The</SPAN></SPAN></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN STYLE="text-decoration: none">
+                            Service Provider Shall provide the Door Step Assistance for the
+                            Customer within </SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none">48hrs</SPAN></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN STYLE="text-decoration: none">
+                            of intimation from the customer without any additional charges. </SPAN></FONT></FONT></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                            <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none"><B>Claimzy
+                            Unique Service Card</B></SPAN></SPAN></FONT></FONT></FONT></FONT></P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none">The
+                        Customer , after signing the contract with the service provider will
+                        be allotted a CLAIMZY UNIQUE SERVICE CARD. Unique Customer Identity
+                        shall be engraved/embossed on the card. </SPAN></SPAN></FONT></FONT></FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none">The
+                        Customer has to produce the card wish list availing the services of
+                        the card. </SPAN></SPAN></FONT></FONT></FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none">Upon
+                        failure to produce the card , the service provider wont be liable to
+                        provide the service of the impugned contract.</SPAN></SPAN></FONT></FONT></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none">Upon
+                        loss , theft , damage to the CLAIMZY UNIQUE SERVICE CARD , the
+                        Customer has to apply for the new CLAIMZY UNIQUE SERVICE CARD upon
+                        payment of penalty of Rs. 500/- ( Rupees Five Hundred Only )</SPAN></SPAN></FONT></FONT></FONT></FONT></P>
+                        <OL TYPE=a START=4>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                            <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none"><B>Jurisdiction</B></SPAN></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none">
+                            </SPAN></SPAN></FONT></FONT></FONT></FONT>
+                            </P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none">Any
+                        disputes or differences under this policy shall be subject to the
+                        exclusive jurisdiction of Courts in Pune , India.  </SPAN></SPAN></FONT></FONT></FONT></FONT>
+                        </P>
+                        <OL TYPE=a START=5>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                            <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none"><B>Interest</B></SPAN></SPAN></FONT></FONT></FONT></FONT></P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                        <FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"> <FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">No
+                        sums payable under this contract shall carry any interest</SPAN></SPAN></FONT></FONT></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-left: 0.75in; margin-bottom: 0.14in; border: none; padding: 0in; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="Helvetica, serif"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="text-decoration: none">Claimzy
+                        service reserves the right to sub-contract third party for services
+                        without informing the Customer.</SPAN></SPAN></FONT></FONT></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>8)
+                         Termination</B></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><B>
+                        Clause:</B></FONT></FONT></P>
+                        <OL TYPE=a>
+                            <LI><P STYLE="margin-bottom: 0in; background: #ffffff; line-height: 0.22in">
+                            <FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3>The
+                            Customer shall have the option to cancel the </FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="poppins"><FONT SIZE=3>Annual
+                            Maintainance Contract within 7 days</FONT></FONT></FONT><FONT COLOR="#212121"><FONT FACE="poppins"><FONT SIZE=3>
+                            from the date of purchase of the same, subject to Customer not
+                            having availed any service under from the Service Provider under the
+                            contract. </FONT></FONT></FONT>
+                            </P>
+                        </OL>
+                        <P STYLE="margin-left: 0.5in; margin-bottom: 0in; background: #ffffff; line-height: 0.22in">
+                        <BR>
+                        </P>
+                        <OL TYPE=a START=2>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3>The Service
+                            Provider will terminate the contract if the information/documents,
+                            device details or images as stipulated in the plan, that may be
+                            required for the purpose of the Annual Maintenance Contract are
+                            fraudulently and dishonestly furbished to the Service Provider.</FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                             <FONT FACE="poppins"><FONT SIZE=3>Service Provider
+                            shall terminate the contract upon the information of The Product
+                            being obtained from Theft , Robbery or produce of any criminal
+                            activity as mentioned in the Indian Penal Code.</FONT></FONT></P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>9)
+                         Refund</B></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><B>
+                        Policy</B></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">If
+                        Service Provider or any other party as instructed or contacted by
+                        Service Provider  is unable to meet the above Services, the Customer
+                        will be eligible to refund from from Service Provider after deduction
+                        of Taxes. </SPAN></SPAN></FONT></FONT>
+                        </P>
+                        <OL TYPE=a>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">In</SPAN></SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            case , the Customer does not the avail the services from the service
+                            provider (</FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">Claimzy)
+                            </SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            within the Manufacturer’s Warranty or 12 months whichever is
+                            earlier , then the Customer shall not be entitled to refund upon the
+                            termination of the contract.</FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">The</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            Customer is entitled to refund of the Annual Maintenance Charge if
+                            he contacts the Service provider for availing the services and the
+                            service provider is unable to provide services/ repairs to the
+                            service product except in the cases of irreparable damage and Liquid
+                            Damage. </FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3>The Customer is not
+                            liable for a refund if he</FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">/she</SPAN></FONT></FONT><FONT FACE="poppins"><FONT SIZE=3>
+                            has availed the services of the contract once and wants to terminate
+                            the contract after availing the services from the service provider. </FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3>Customer is not
+                            entitled to refund in case of irreparable damage to the service
+                            product. </FONT></FONT>
+                            </P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>10)
+                         Data Protection</B></SPAN></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">The
+                        details you provide to make your subscribe plan will be stored and
+                        used by the Administrator- claimzy. This information may not be
+                        shared with third parties for the purpose of handling claims and
+                        repairs. Your data will, at all times be held securely and handled
+                        with the Claimzy care in accordance with all principles as defined by
+                        Data Protection laws of India.</SPAN></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>11)
+                         Representation and Responsibilities of Customer</B></SPAN></FONT></FONT></P>
+                        <OL TYPE=a>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">Customer
+                            shall enter into a contract with Service Provider within two weeks
+                            (2weeks)  from the date of the purchase of the Device.</SPAN></SPAN></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">The
+                            Customer must notify about the damage incurred by the Service
+                            Product to the Service Provider with 24 hrs of the damage. </SPAN></SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">To
+                            avail service, Customer must produce to claimzy, at the time of
+                            registration of complaint and at point of service proof(claimzy
+                            smart card) of purchase of this claimzy subscription plan and either
+                            1. Original manufacturer warranty certificate/card or 2. Claimzy
+                            smart card.</SPAN></SPAN></FONT></FONT></P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">It
+                            is the duty of the customer to disclose the material facts
+                            pertaining to the product. The material facts include any
+                            damage,repairs,replacement of products.   </SPAN></SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">By
+                            signing the contract, it would be deemed that the Customer has given
+                            his/her consent to contact you through call, SMS or email on the
+                            details provided by them for the purpose of this CS. </SPAN></SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">You
+                            acknowledge and confirm that you are aware of the nature of
+                            telecommunications/ internet services and that an email transmission
+                            may not be received properly and may be read or be known to any
+                            unauthorized persons. You agree to assume and bear all the risks
+                            involved in respect of such errors and misunderstanding and CS and
+                            Claimzy shall not be responsible in any manner. </SPAN></SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">This
+                            is a contract between the Customer and Claimzy and seller/retailer
+                            of the Covered product is not/shall not be a party to the same and
+                            shall not be responsible for any of the Customer’s grievances with
+                            regards to the services to be performed by Claimzy under this
+                            contract. </SPAN></SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">If
+                            any provision of these T&amp;Cs shall be held to be invalid, illegal
+                            or unenforceable, the validity, legality and enforceability of the
+                            remaining provisions hereof shall not in any way be affected or
+                            impaired. </SPAN></SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">You
+                            hereby agree to indemnify and keep Claimzy harmless against all
+                            damages, liabilities, costs, expenses, claims, suits and proceedings
+                            (including reasonable attorney's fee) that may be suffered by
+                            Claimzy as a consequence of (i) violation of these T&amp;Cs by You;
+                            (ii) violation of applicable laws by You; (iii) any action or
+                            inaction resulting in willful misconduct or negligence, on Your
+                            part. </SPAN></SPAN></FONT></FONT>
+                            </P>
+                            <LI><P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                            <FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">These
+                            T&amp;C shall be governed in accordance with the applicable laws in
+                            India. Courts at Pune shall have the exclusive jurisdiction to
+                            settle any dispute that may arise under this T&amp;Cs.. </SPAN></SPAN></FONT></FONT>
+                            </P>
+                        </OL>
+                        <P ALIGN=JUSTIFY STYLE="margin-top: 0.21in; margin-bottom: 0.05in; background: #ffffff; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">Claimzy
+                        request to all it's customer to fully ensure and sign the quality
+                        check sheet before giving and taking Handover of his/her device at
+                        the time of pickup and drop, any problems unrelated to our repair
+                        will not be our responsibility post customer's acceptance of the
+                        repaired device.</SPAN></SPAN></FONT></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">The
+                        Service is valid only within the territorial limits of Pune, India.</SPAN></SPAN></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><BR><BR>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><B>Notices</B></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>Any
+                        notice required under the Terms and/or the relevant Service must be
+                        in writing and must be either</FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%">
+                        <FONT FACE="poppins"><FONT SIZE=3>(a) delivered in
+                        person, </FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>(b)
+                        sent by first class registered mail, or air mail, as appropriate, or </FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>(c)
+                        sent by overnight courier, in each case properly posted and fully
+                        prepaid to the appropriate address</FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">.
+                        </SPAN></FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><B>Mandatory
+                        Device related information for activating the maintenance contract.
+                        It is mandatory for the Customer to provide the following device
+                        related information to the Service Provider:</B></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>a)
+                        Customer Name </FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>b)
+                        IMEI no.</FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>c)
+                        Make and model of the handset </FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">with
+                        picture</SPAN></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>d)
+                        Invoice value </FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>e)
+                        Invoice date </FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>f)
+                        Email ID</FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"> <FONT FACE="poppins"><FONT SIZE=3>g)
+                        Contact Number </FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"> <FONT FACE="poppins"><FONT SIZE=3>h)
+                        Address of the Customer</FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3><B>Maintenance
+                        Coverage:  </B></FONT></FONT>
+                        </P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>1)
+                        The Customer shall be entitled reap benefits of the Annual
+                        Maintenance Contract ie the Service more than one time during the
+                        tenure of the contract.</FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-bottom: 0.14in; line-height: 150%"><FONT FACE="poppins"><FONT SIZE=3>2)
+                        The Service of the Service Provider shall commence upon the
+                        termination or expiry of the Manufacture’s Guarantee attached /
+                        accompanied with the purchase of the service </FONT></FONT><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">product.</SPAN></FONT></FONT></P>
+                        <H2 LANG="en-IN" CLASS="western" ALIGN=JUSTIFY STYLE="margin-top: 0.21in; margin-bottom: 0.05in; background: #ffffff; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>These
+                        terms &amp; condition are subject to change, claimzy reverse the
+                        rights to update or amend these terms &amp; conditions at any time
+                        without prior notice.</B></SPAN></FONT></FONT></FONT></H2>
+                        <H2 LANG="en-IN" CLASS="western" ALIGN=JUSTIFY STYLE="margin-top: 0.21in; margin-bottom: 0.05in; background: #ffffff; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="poppins"><FONT SIZE=3><B>Contact
+                        Details</B></FONT></FONT></FONT></H2>
+                        <P ALIGN=JUSTIFY STYLE="margin-top: 0.21in; margin-bottom: 0.05in; background: #ffffff; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US">In
+                        case of service option provided to the Customer, Customer needs to
+                        respond immediately on the telephone call with the Service Provider
+                        or any other person as instructed by the service provider whether to
+                        go ahead with the service or return the unrepaired Service Product.
+                        Any delay in response will extend the SLA by the delayed period. The
+                        policy will cease to exist in case of replacement.</SPAN></FONT></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-top: 0.21in; margin-bottom: 0.05in; background: #ffffff; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>Service-
+                        </B></SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">All
+                        days of the week except Sunday and public holidays. Working hours
+                        10:00am to 6:00 pm. Pick up and Drop service for home visits will be
+                        fixed as per mutual convenience.</SPAN></SPAN></FONT></FONT></FONT></P>
+                        <P ALIGN=JUSTIFY STYLE="margin-top: 0.21in; margin-bottom: 0.05in; background: #ffffff; line-height: 150%">
+                        <FONT COLOR="#000000"><FONT FACE="poppins"><FONT SIZE=3><SPAN LANG="en-US"><B>Note:
+                        claimzy is not insurance company it's Repairing service provider only</B></SPAN></FONT></FONT></FONT></P>
+                        <P LANG="en-IN" ALIGN=JUSTIFY STYLE="margin-top: 0.19in; margin-bottom: 0.19in; background: #ffffff; line-height: 150%">
+                        <FONT FACE="poppins"><FONT SIZE=3><FONT COLOR="#000000">In
+                        case of any queries or if you are not satisfied with the services
+                        provided </FONT><FONT COLOR="#000000"><SPAN LANG="en-US">by Claimzy</SPAN></FONT><FONT COLOR="#000000">,
+                        you can contact us on:</FONT></FONT></FONT></P>
+                        <P LANG="en-IN" ALIGN=JUSTIFY STYLE="margin-top: 0.19in; margin-bottom: 0.19in; background: #ffffff; line-height: 150%"><A NAME="_GoBack"></A>
+                        <FONT FACE="poppins"><FONT SIZE=3><FONT COLOR="#000000">Mail
+                        Id: </FONT><FONT COLOR="#000000"><SPAN LANG="en-US">info@claimzy.in
+                        </SPAN></FONT></FONT></FONT>
+                        </P>
+                        <P LANG="en-IN" ALIGN=JUSTIFY STYLE="margin-top: 0.19in; margin-bottom: 0.19in; background: #ffffff; line-height: 150%">
+                        <FONT FACE="poppins"><FONT SIZE=3><FONT COLOR="#000000"><SPAN LANG="en-US">Mobile
+                        No- +91 8181040488</SPAN></FONT></FONT></FONT></P>
+                        <P LANG="en-IN" ALIGN=JUSTIFY STYLE="margin-top: 0.19in; margin-bottom: 0.19in; background: #ffffff; line-height: 150%">
+                        <FONT FACE="poppins"><FONT SIZE=3><FONT COLOR="#000000">Availability:
+                            Mon - Sat, 10:00-18:00</FONT> </FONT></FONT></P>
+                        <P LANG="en-IN" ALIGN=JUSTIFY STYLE="margin-top: 0.19in; margin-bottom: 0.19in; background: #ffffff; line-height: 150%">
+                        <BR><BR>
+                        </P>
+                         
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Jquery JS-->
+    <script src="{% static 'claimzy_in/css/client/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'claimzy_in/css/client/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'claimzy_in/css/client/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'claimzy_in/css/client/vendor/datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'claimzy_in/css/client/js/global.js' %}"></script>
+
+</body>  
+{% endblock content %}
