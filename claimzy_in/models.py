@@ -18,7 +18,7 @@ class Devices(models.Model):
     brand       = models.CharField(max_length=100)
     model       = models.CharField(max_length=100)
     price       = models.CharField(max_length=10)
-    imei        = models.CharField(max_length=100)
+    imei        = models.CharField(max_length=15)
     plan        = models.CharField(max_length=100)
     invoice_date= models.DateField()   
     invoice     = models.FileField(upload_to='static/claimzy_in/userdata/invoice/', max_length=254,default='static/claimzy_in/img/default.jpg')

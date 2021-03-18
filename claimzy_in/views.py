@@ -335,7 +335,7 @@ def updateprofile(request):
           if int(request.user.id) == int(uid):
                return redirect('claimzy-mydetails')
           else:
-               return HttpResponseRedirect("http://127.0.0.1:8000/profile-customer?id="+str(uid))
+               return HttpResponseRedirect("https://www.claimzy.in/profile-customer?id="+str(uid)) # replace for localhost urls
      
 
 

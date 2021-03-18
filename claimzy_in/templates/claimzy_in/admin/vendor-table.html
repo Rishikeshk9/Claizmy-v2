@@ -27,10 +27,10 @@
                 {% for someone in Vendor %}
                 <tr>
                   <th class="text-left">{{someone.id}}</th>
-
+                  <!--replace for localhost urls-->
                   <td class="text-left">
                     <a
-                      href="http://127.0.0.1:8000/profile-customer?id={{ someone.id }}"
+                      href="https://www.claimzy.in/profile-customer?id={{ someone.id }}"
                       >{{someone.name}}</a
                     >
                   </td>

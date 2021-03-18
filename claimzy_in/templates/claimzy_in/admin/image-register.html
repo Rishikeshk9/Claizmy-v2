@@ -421,7 +421,8 @@
             id="imi"
             type="text"
             name="imei"
-            maxlength="16"
+            minlength="15"
+            maxlength="15"
             required
           />
           <p id="imi-note" style="color: red"></p>
@@ -436,8 +437,8 @@
                 $("#imi-note").html("");
               }
 
-              if (value.length < 16) {
-                $("#imi-note").html("Please enter 16 Digit IMEI");
+              if (value.length < 15) {
+                $("#imi-note").html("Please enter 15 Digit IMEI");
                 $("#imi").val("");
                 return false;
               } else {
