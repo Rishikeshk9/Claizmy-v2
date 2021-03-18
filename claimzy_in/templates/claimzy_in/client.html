@@ -4,15 +4,16 @@
 
 <head> 
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="apple-touch-icon" sizes="76x76" href="{% static 'claimzy_in/img/apple-icon.png' %}">
   <link rel="icon" type="image/png" href="{% static 'claimzy_in/img/favicon.ico' %}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link rel=”canonical” href=”https://www.claimzy.in” />
   
   <title>
     Claimzy
   </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -52,6 +53,15 @@
   .invis{
       display: none;
   }}
+  html
+  {
+      overflow-x: hidden; 
+  
+  }
+  
+  .fontLato {
+    font-family:'Lato'!important;
+  }
 
   /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
@@ -66,24 +76,30 @@
 }
 </style>
   </head>
-<body  >
+<body>
   
-   
+  <script>
+    var bMobile =   // will be true if running on a mobile device
+    navigator.userAgent.indexOf( "Mobile" ) !== -1 || 
+    navigator.userAgent.indexOf( "iPhone" ) !== -1 || 
+    navigator.userAgent.indexOf( "Android" ) !== -1 || 
+    navigator.userAgent.indexOf( "Windows Phone" ) !== -1 ;
+  </script>
 
   <div class=" col-md-12 invis" style="z-index: 1; height:30px;background-color:#000;width:100%;">
     <div class=" container  " style=" height:30px;background-color:#000;width:100%;text-align: center ">
     
         
-        <div class="col-md-1 text-center" style="height:30px;float:left;color:white; font-family: poppins;font-size:15px;border-right:1px solid #fff; padding-top:3px;"><a href="https://www.facebook.com/claim.zy" target="_blank"><i class="fab fa-facebook   white-text" style="color:#fff" ></i></a> </div> 
+        <div class="col-md-1 text-center" style="height:30px;float:left;color:white; font-family: 'Lato',sans-serif;font-size:15px;border-right:1px solid #fff; padding-top:3px;"><a href="https://www.facebook.com/claim.zy" target="_blank"><i class="fab fa-facebook   white-text" style="color:#fff" ></i></a> </div> 
         
-        <div class="col-md-1 text-center" style="height:30px;float:left;color:white; font-family: poppins;font-size:15px;border-right:1px solid #fff; padding-top:3px;"><a href="https://twitter.com/ClaimZy_" target="_blank"><i class="fab fa-twitter  white-text" style="color:#fff" ></i></a> </div> 
+        <div class="col-md-1 text-center" style="height:30px;float:left;color:white; font-family: 'Lato',sans-serif;font-size:15px;border-right:1px solid #fff; padding-top:3px;"><a href="https://twitter.com/ClaimZy_" target="_blank"><i class="fab fa-twitter  white-text" style="color:#fff" ></i></a> </div> 
         
-        <div class="col-md-1 text-center" style="height:30px;float:left;color:white; font-family: poppins;font-size:15px; padding-top:3px;"><a href="https://instagram.com/claimzy.in?igshid=1y1jwox2ch8aj" target="_blank"><i class="fab fa-instagram white-text" style="color:#fff" ></i></a> </div> 
+        <div class="col-md-1 text-center" style="height:30px;float:left;color:white; font-family: 'Lato',sans-serif;font-size:15px; padding-top:3px;"><a href="https://instagram.com/claimzy.in?igshid=1y1jwox2ch8aj" target="_blank"><i class="fab fa-instagram white-text" style="color:#fff" ></i></a> </div> 
         
-         <div class="col-md-2 text-center" style="height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px;border-left:1px solid #fff;padding-top:5px;"><a href="{% url 'refunds' %}" style="color:white;text-decoration:none"><i class="fas fa-money-bill-alt"style="color:#fff" ></i>&nbsp;&nbsp;Refund Policy</a></div>
+         <div class="col-md-2 text-center" style="height:30px; width:100%;float:right;color:white; font-family: 'Lato',sans-serif;font-size:12px;border-left:1px solid #fff;padding-top:5px;"><a href="{% url 'refunds' %}" style="color:white;text-decoration:none"><i class="fas fa-money-bill-alt"style="color:#fff" ></i>&nbsp;&nbsp;Refund Policy</a></div>
        
-         <div class="col-md-2 text-center" style=" display: inline-block;height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px;border-left:1px solid #fff;padding-top:5px;"><a href="{%url 'terms' %}" style="color:white;text-decoration:none"><i class="fas fa-star"style="color:#FFF" ></i>&nbsp;&nbsp;Terms of Service</a></div>
-        <div class="col-md-2 text-center " style="height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px; padding-top:5px;"><a href="{%url 'privacy' %}" style="color:white;text-decoration:none"><i class="fas fa-exclamation-circle"style="color:#FFF" ></i>&nbsp;&nbsp;Privacy Policy</a></div>
+         <div class="col-md-2 text-center" style=" display: inline-block;height:30px; width:100%;float:right;color:white; font-family: 'Lato',sans-serif;font-size:12px;border-left:1px solid #fff;padding-top:5px;"><a href="{%url 'terms' %}" style="color:white;text-decoration:none"><i class="fas fa-star"style="color:#FFF" ></i>&nbsp;&nbsp;Terms of Service</a></div>
+        <div class="col-md-2 text-center " style="height:30px; width:100%;float:right;color:white; font-family: 'Lato',sans-serif;font-size:12px; padding-top:5px;"><a href="{%url 'privacy' %}" style="color:white;text-decoration:none"><i class="fas fa-exclamation-circle"style="color:#FFF" ></i>&nbsp;&nbsp;Privacy Policy</a></div>
         
         
     </div>
@@ -100,12 +116,12 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav  mr-auto" >
         <li class="nav-item ">
-          <a class="nav-link" id="about" data-toggle="collapse" data-target=".navbar-collapse" href="#">ABOUT<span class="sr-only">(current)</span></a>
+          <a class="nav-link fontLato" id="about" data-toggle="collapse" data-target=".navbar-collapse" href="#">ABOUT<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link btn-buy" id="plans"  href="#ex1" rel="modal:open" >PLANS</a>
+        <li class="nav-item ">
+          <a class="nav-link fontLato btn-buy" id="plans"  href="#ex1" rel="modal:open" >PLANS</a>
         </li> 
         <a class="navbar-brand d-none" href="https://ibb.co/0Dch6tV">
             <img src="https://i.ibb.co/0Dch6tV/claim.png" alt="claim"  height="200"  class="m-0 p-0 claim-brand" alt="Claim Now">
@@ -113,11 +129,11 @@
         </a>
          
         <li class="nav-item">
-            <a class="nav-link" id="contact" href="#">CONTACT</a>
+            <a class="nav-link fontLato" id="contact" href="#">CONTACT</a>
           </li> 
           
         <li class="nav-item">
-            <a class="nav-link" id="account" href="{%url 'login' %}">SIGN IN</a>
+            <a class="nav-link fontLato" id="account" href="{%url 'login' %}">SIGN IN</a>
         </li> 
          
       </ul>
@@ -140,7 +156,7 @@
     {% endblock %}
  
     <div class="container contact-section">
-      <div class="  text-center   text-light py-4"><h3 class="captionsBlack"><span>Reach out to us</span></h3></div>
+      <div class="  text-center   text-light py-4"><h3 class="captionsBlack fontLato"><span>Reach out to us</span></h3></div>
         <!-- Buttons-->
         <div class="row text-center my-4">
           <div class="col-md-4">
@@ -151,8 +167,8 @@
             font-size: 10px; 
             text-align: center; "><i class="fas fa-phone" style="font-size: large;"></i></button> 
 
-            <p>+91 8181 040 488</p>
-            <p class="mb-md-0">Mon - Sat, 10:00-18:00</p>
+            <p class="fontLato">+91 8181 040 488</p>
+            <p class="mb-md-0 fontLato">Mon - Sat, 10:00-18:00</p>
           </div>
           <div class="col-md-4">
             <button type="button" class="btn btn-warning btn-circle btn-md" style="   width: 50px; 
@@ -162,7 +178,7 @@
             font-size: 10px; 
             text-align: center; "><i class="fas fa-map-marker-alt" style="font-size: large;"></i></button> 
 
-            <p>504, Shreeniwas Westside County, D- wing, Pimple Gurav, Pune- 411061</p>
+            <p class="fontLato">504, Shreeniwas Westside County, D- wing, Pimple Gurav, Pune- 411061</p>
            </div>
           <div class="col-md-4">
             <button type="button" class="btn btn-warning btn-circle btn-md" style="   width: 50px; 
@@ -172,7 +188,7 @@
             font-size: 10px; 
             text-align: center; "><i class="fas fa-envelope"  style="font-size: large;" ></i></button> 
 
-            <p>info@claimzy.in</p>
+            <p class="fontLato">info@claimzy.in</p>
            </div>
         </div>
       
@@ -183,7 +199,7 @@
     <div class="spacer s2  "> </div> 
     <div id="trigger7" class=" "></div>   
     <!-- Footer -->
-<footer class="page-footer font-small black pt-4"  >
+<footer class="page-footer font-small black pt-4 fontLato"  >
 
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-left">
@@ -192,12 +208,12 @@
     <div class="row">
  
         <a class=" footer-brand m-auto"  >
-          <img class="" src="{% static 'claimzy_in/img/logo-alt.png' %}" alt="claim"  height="70"  style="position: relative; top: -74px;" class="  p-1 " >
+          <img class="" src="{% static 'claimzy_in/img/logo-alt.png' %}" alt="claim"  height="70"  style="position: relative; top: -74px;" class=" fontLato p-1 " >
            
       </a> 
        
     </div>
-    <div class="row my-4"  style="position: relative; top: -44px;" > 
+    <div class="row my-4 "  style="position: relative; top: -44px;" > 
 
       <div class="m-auto">
           <!-- Facebook -->
@@ -218,18 +234,24 @@
         </div>
     </div>
     <!-- Grid row -->
+<style>
+  @font-face {
+    font-family: 'Lato',sans-serif!important;
+    src: url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+  }
 
+</style>
   </div>
   
   <div  style="position: relative; top: -44px;" >
   <!-- Footer Links -->
-  <div class="col-md-4 text-center  py-3 " style="height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px; padding-top:5px;"><a href="{% url 'refunds' %}" style="color:white;text-decoration:none"><i class="fas fa-money-bill-alt"style="color:#fff" ></i>&nbsp;&nbsp;Refund Policy</a></div>
+  <div class="col-md-4 text-center  py-3 " style="height:30px; width:100%;float:right;color:white; font-family: 'Lato';font-size:12px; padding-top:5px;"><a href="{% url 'refunds' %}" style="color:white;text-decoration:none"><i class="fas fa-money-bill-alt"style="color:#fff" ></i>&nbsp;&nbsp;Refund Policy</a></div>
        
-  <div class="col-md-4 text-center  py-3 " style=" display: inline-block;height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px; padding-top:5px;"><a href="{%url 'terms' %}" style="color:white;text-decoration:none"><i class="fas fa-star"style="color:#FFF" ></i>&nbsp;&nbsp;Terms of Service</a></div>
- <div class="col-md-4 text-center  py-3 " style="height:30px; width:100%;float:right;color:white; font-family: poppins;font-size:12px; padding-top:5px;"><a href="{%url 'privacy' %}" style="color:white;text-decoration:none"><i class="fas fa-exclamation-circle"style="color:#FFF" ></i>&nbsp;&nbsp;Privacy Policy</a></div>
+  <div class="col-md-4 text-center  py-3 " style=" display: inline-block;height:30px; width:100%;float:right;color:white; font-family: 'Lato';font-size:12px; padding-top:5px;"><a href="{%url 'terms' %}" style="color:white;text-decoration:none"><i class="fas fa-star"style="color:#FFF" ></i>&nbsp;&nbsp;Terms of Service</a></div>
+ <div class="col-md-4 text-center  py-3 " style="height:30px; width:100%;float:right;color:white; font-family: 'Lato';font-size:12px; padding-top:5px;"><a href="{%url 'privacy' %}" style="color:white;text-decoration:none"><i class="fas fa-exclamation-circle"style="color:#FFF" ></i>&nbsp;&nbsp;Privacy Policy</a></div>
  
   <!-- Copyright -->
-  <div class="footer-copyright text-center  pt-5 col-md-12">Developed with <i class="fas fa-heart " style="color: red;"></i> by
+  <div class="footer-copyright text-center fontLato pt-5 col-md-12">Developed with <i class="fas fa-heart " style="color: red;"></i> by
     <a href="https://supersapiens.in"  style="color: yellow;">Supersapiens</a>
   </div>
 </div>
@@ -266,8 +288,13 @@
 <script src="{% static 'claimzy_in/js/client/main.js' %}"></script>
 
  
-<script>
-   
-
+<script> 
+  var dh = document.getElementsByClassName('deskhide');
+  console.log(dh.length);
+  if(!bMobile){
+    for(var i=0;i<dh.length;i++){
+      dh[i].setAttribute("style","display:none;");
+    }
+  }
   </script>
 </html>

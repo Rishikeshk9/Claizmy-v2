@@ -41,7 +41,9 @@
 
                   <td class="text-right">
                     <a
-                      href=" "
+                      name="ven_id"
+                      value="{{someone.id}}"
+                      onclick='deleteFn("{{someone.id}}")'
                       class="btn btn-info active"
                       role="button"
                       aria-pressed="false"
@@ -66,6 +68,27 @@
   </div>
 </div>
 <script>
+  function deleteFn(e) {
+    let isBoss = confirm("Are You Sure?");
+    
+    if(isBoss){
+      $.ajax({
+      type: "GET",
+      url: '{% url "customer-delete" %}',
+      data: {
+        id: e,
+      },
+      success: function (xml) {
+        alert(xml);
+        window.location.href = '{% url "claimzy-vendors" %}';
+      },
+      error: function (data) {
+        alert("User Deletion Failed");
+      },
+    });
+    }
+    
+  }
   var element = document.getElementById("registered-vendorsNav");
   element.classList.add("active");
 </script>

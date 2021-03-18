@@ -31,6 +31,13 @@
 </head>
 
 <body class="">
+  <script>
+    var bMobile =   // will be true if running on a mobile device
+    navigator.userAgent.indexOf( "Mobile" ) !== -1 || 
+    navigator.userAgent.indexOf( "iPhone" ) !== -1 || 
+    navigator.userAgent.indexOf( "Android" ) !== -1 || 
+    navigator.userAgent.indexOf( "Windows Phone" ) !== -1 ;
+  </script>
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
       <!--
@@ -328,7 +335,16 @@
 <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="{% static 'claimzy_in/demo/demo.js' %}"></script>
   <script>
+    
     $(document).ready(function() {
+      var dh = document.getElementsByClassName('deskhide');
+      console.log(dh.length);
+      if (!bMobile) {
+        for (var i = 0; i < dh.length; i++) {
+          dh[i].setAttribute("style", "display:none;");
+        }
+      }
+  
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();
 
@@ -383,8 +399,11 @@
 
 
   $(document).ready(function() {
+    
+   
     $('#claims-table3').DataTable(   );
     $('#claims-table2').DataTable();
+    $('#claims-table4').DataTable();
     $('#claims-table').DataTable();
 
     var dt = new Date();

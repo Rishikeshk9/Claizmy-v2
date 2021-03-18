@@ -28,7 +28,7 @@ input[type=number] {
        url("/static/claimzy_in/fonts/Korolev Compressed W04 Bold.ttf") format("opentype")
        }
     .damaged{
-      font-family: 'DamagedFont', 'poppins', sans-serif;
+      font-family: 'DamagedFont', 'Lato', sans-serif;
     }
   .headings {
     font-size: 20px;
@@ -37,7 +37,7 @@ input[type=number] {
     color: black;
   } 
 .headings{
-  font-family: 'poppins', Arial, sans-serif;
+  font-family: 'Lato', Arial, sans-serif;
 font-weight:normal;
 font-style:normal;
 }  

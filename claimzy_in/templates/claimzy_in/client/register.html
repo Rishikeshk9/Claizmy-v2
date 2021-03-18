@@ -102,6 +102,10 @@
       font-size: 0.8rem;
     }
 
+    div{
+      font-family: 'Lato',sans-serif!important;
+    }
+
     .pricing ul li {
       margin-bottom: 1rem;
     }
@@ -161,6 +165,13 @@
     }
   </style>
 </head>
+<script>
+  var bMobile =   // will be true if running on a mobile device
+  navigator.userAgent.indexOf( "Mobile" ) !== -1 || 
+  navigator.userAgent.indexOf( "iPhone" ) !== -1 || 
+  navigator.userAgent.indexOf( "Android" ) !== -1 || 
+  navigator.userAgent.indexOf( "Windows Phone" ) !== -1 ;
+</script>
 <body>
   <div id="loader2">
     <img
@@ -179,7 +190,7 @@
       height="128px"
     />
   </div>
-  <div class="page-wrapper bg-gra-02 p-t-30 p-b-100 font-poppins">
+  <div class="page-wrapper bg-gra-02 p-t-30 p-b-100 fontLato">
     <div class="wrapper wrapper--w680">
       <div class="card card-4">
         <div class="card-body">
@@ -545,7 +556,7 @@
                   >
                   <div class="input-group-icon">
                     <input
-                      class="input--style-4 js-datepicker"
+                      class="fontLato input--style-4 js-datepicker"
                       type="text"
                       name="date"
                       required
@@ -671,13 +682,14 @@
               </div>
 
               <div class="col-2">
-                <div class="input-group">
+                <div class="input-group ">
                   <button
-                    class="btn btn--radius-2 btn--blue"
+                    class=" btn btn--radius-2 btn--blue"
                     id="reg-btn"
                     type="submit"
                   >
-                    Make Payment
+                  <span style="font-family: 'Lato',sans-serif!important;">Make Payment</span>
+                    
                   </button>
                 </div>
               </div>
@@ -690,7 +702,7 @@
                   width="166px"
                   height="166px"
                 />
-                <figcaption style="margin-left: 40%">Uploading Data</figcaption>
+                <figcaption style="margin-left: 40%;font-family: 'Lato',sans-serif!important;">Uploading Data</figcaption>
               </div>
             </div>
           </form>
@@ -721,6 +733,7 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
+  // alert(bMobile);
   function dataURItoBlob(dataURI) {
     // convert base64 to raw binary data held in a string
     // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this

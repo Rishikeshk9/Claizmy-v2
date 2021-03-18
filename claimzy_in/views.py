@@ -32,10 +32,9 @@ def test(request):
 
 def user_register(request):
      if request.method == 'POST':
-        plan = request.POST.get("plan")
-        brand = request.POST.get("brand")
-
-        return render(request,'claimzy_in/client/register.html',{'Plan': plan,'Brand':brand})
+          plan = request.POST.get("plan")
+          brand = request.POST.get("brand")
+          return render(request,'claimzy_in/client/register.html',{'Plan': plan,'Brand':brand})
 
 @csrf_exempt
 def verify(request):
@@ -344,6 +343,11 @@ def updateprofile(request):
 
 
 def device_register(request):
+     if(request.user_agent.is_mobile or request.user_agent.is_tablet or request.user_agent.is_touch_capable):
+          print("else ran")
+     else:
+          print("it is a mobile or handheld")
+          return HttpResponse("You cannot access this page.")
      customers = User.objects.filter(is_customer="True")
      vendors = User.objects.filter(is_vendor="True")
      is_customer=False
@@ -362,6 +366,11 @@ def device_register(request):
 
 
 def image_register(request):
+     if(request.user_agent.is_mobile or request.user_agent.is_tablet or request.user_agent.is_touch_capable):
+          print("else ran")
+     else:
+          print("it is a mobile or handheld device")
+          return HttpResponse("You cannot access this site.")
      customers = User.objects.filter(is_customer="True")
      vendors = User.objects.filter(is_vendor="True")
      if request.method == 'POST':

@@ -1,6 +1,8 @@
 {% extends "claimzy_in/client.html" %} {% load static %} {% block content %}
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+ 
   /* For mobile phones: */
   [class*="col-"] {
     width: 100%;
@@ -150,6 +152,7 @@
   }
   @media screen and (min-width: 640px) {
     .fl-fl {
+      font-family:'Lato'!important;
       background: transparent;
       text-transform: uppercase;
       letter-spacing: 3px;
@@ -167,6 +170,7 @@
   }
 
   .carousel-itemz {
+    font-family:'Lato'!important;
     height: 100vh;
     min-height: 350px;
     background: no-repeat center center scroll;
@@ -175,21 +179,21 @@
     -o-background-size: cover;
     background-size: cover;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+  
   
   /* Floating Social Media Bar Style Ends Here */
 </style>
-<div class="main-container m-0 p-0">
+<div class="main-container m-0 p-0" >
   <div class="float-sm" id="btn333">
     <div
       class="fl-fl float-bn"
       style="filter: drop-shadow(0 0 0.25rem gray)"
       id="buyNow"
     >
-      <div class="row">
-        <div class="col-2">
+      <div class="row deskhide">
+        <div class="col-2 ">
           <button
-            class="btn btn-warning btn-buy"
+            class="btn btn-warning btn-buy fontLato"
             style="transform: rotate(-90deg)"
           >
             Buy Now
@@ -322,7 +326,7 @@
             <p class="lead text-dark">
                Best Mobile Protection Plan You Can Count On! 
             </p>
-            <h2 class="btn-buy">
+            <h2 class="btn-buy deskhide">
               <button type="button" class="btn btn-success">Buy Now</button>
             </h2>
           </div>
@@ -345,7 +349,7 @@
             <p class="lead text-dark">
                Best Mobile Protection Plan You Can Count On! 
             </p>
-            <h2 class="btn-buy">
+            <h2 class="btn-buy deskhide">
               <button type="button" class="btn btn-success">Buy Now</button>
             </h2>
           </div>
@@ -368,7 +372,7 @@
             <p class="lead text-dark">
                Best Mobile Protection Plan You Can Count On! 
             </p>
-            <h2 class="btn-buy">
+            <h2 class="btn-buy deskhide">
               <button type="button" class="btn btn-success">Buy Now</button>
             </h2>
           </div>
@@ -397,10 +401,10 @@
 
   <div class="container about-section card card-gradient4">
     <div class="text-center mt-5 mb-3 py-4 card-body text-center">
-      <h4 class="action-text" style="color: #000"><span>WHO ARE WE?</span></h4>
+      <h4 class="action-text " style="color: #000"><span class="fontLato" style="font-size: 40px;">WHO ARE WE?</span></h4>
     </div>
 
-    <p class="p-5 headings text-left" style="font-family:'Lato'!important;">
+    <p class="p-5 headings text-left fontLato" >
       ClaimZy's Custom Is to Provide Trusted, Easy and Hassle Free Mobile Repair
       Service. In Case of Any Accidental Damage to The Phones.We Offers Most
       Affordable Inestimable Mobile Repairing Solutions For Guaranteed Period Of
@@ -414,7 +418,7 @@
     <div>
       <div id="about-anim" style="height: 250px"></div>
     </div>
-    <p class="p-5 headings text-left">
+    <p class="p-5 headings text-left fontLato">
       Our Vison Is To Augment. Our Service Support From Mobile Phone Damages to
       Other Electronic Gadgets Compromising Oven, TV, Home Appliances In Comming
       Future.
@@ -422,7 +426,7 @@
   </div>
   <div class="container my-4 arrow-down" style="background: white">
     <div class="text-center mt-5 mb-3 py-4">
-      <h4 class="action-text" style="color: #000">
+      <h4 class="action-text fontLato" style="font-size: 40px; color: #000">
         <span>WHAT MAKES US SPECIAL?</span>
       </h4>
     </div>
@@ -435,11 +439,11 @@
           <div class="card-body text-center">
             <div class="p-5" id="anim2" class="m-auto"></div>
 
-            <h4 class="card-title text-dark text-center">
+            <h4 class="fontLato card-title text-dark text-center">
               <a>Unlimited Repairing Solutions</a>
             </h4>
             <!-- Text -->
-            <p class="card-text text-dark">
+            <p class="fontLato card-text text-dark">
               Our experts pick your damaged phone from your doorstep, repair it
               and deliver it to you in the shortest time span possible. We
               guarantee you the best service.
@@ -456,11 +460,11 @@
             <div id="anim3" class="m-auto"></div>
 
             <!-- Title -->
-            <h4 class="card-title text-dark text-center">
+            <h4 class="fontLato card-title text-dark text-center">
               <a>Zero Hidden Charges</a>
             </h4>
             <!-- Text -->
-            <p class="card-text text-dark">
+            <p class="fontLato card-text text-dark">
               No hidden charges or fees required at the time of claiming. Once
               you are subscribed with Claimzy's services, you don’t need to pay
               additional fees for any repair needed.
@@ -477,11 +481,11 @@
             <div id="anim4" class="m-auto p-5"></div>
 
             <!-- Title -->
-            <h4 class="card-title text-dark text-center">
+            <h4 class=" fontLato card-title text-dark text-center">
               <a>Free Pick-Up & Delivery</a>
             </h4>
             <!-- Text -->
-            <p class="card-text text-dark">
+            <p class="fontLato card-text text-dark">
               Say good bye to long queues at the service center. We pick your
               device up and deliver it right to your doorstep saving your time
               and money.
@@ -502,11 +506,11 @@
             <div id="anim5" class="m-auto p-5"></div>
 
             <!-- Title -->
-            <h4 class="card-title text-dark text-center">
+            <h4 class="fontLato card-title text-dark text-center">
               <a>Upto 100% Buyback</a>
             </h4>
             <!-- Text -->
-            <p class="card-text text-dark">
+            <p class=" fontLato card-text text-dark">
               If you are planning on purchasing a new phone, we will buy back
               your phone at the assured price. When you buy a new phone from us,
               we will buy back your device at a fixed price.
@@ -523,11 +527,11 @@
             <div id="anim6" class="m-auto p-5"></div>
 
             <!-- Title -->
-            <h4 class="card-title text-dark text-center">
+            <h4 class=" fontLato card-title text-dark text-center">
               <a>Easy Online Claim</a>
             </h4>
             <!-- Text -->
-            <p class="card-text text-dark">
+            <p class=" fontLato card-text text-dark">
               Just fill the online form to file your claim. You need to provide
               customer ID(given at the time of registration), issue with your
               phone, contact number and address.
@@ -544,11 +548,11 @@
             <div id="anim7" class="m-auto p-5"></div>
 
             <!-- Title -->
-            <h4 class="card-title text-dark text-center">
+            <h4 class=" fontLato card-title text-dark text-center">
               <a>Guaranteed Repair Or 100% Refund</a>
             </h4>
             <!-- Text -->
-            <p class="card-text text-dark">
+            <p class="fontLato card-text text-dark">
               We promise you to provide guaranteed repair and services. Our
               experienced and friendly team is dedicated to offer you the best
               repair solution for your mobile phone.
@@ -566,7 +570,7 @@
 
     <div id="pin1" class="box2 pt-5">
       <div class="text-center my-5">
-        <h1 class="headings"><span class="damaged">Damages covered</span></h1>
+        <h1 class="headings mr-3"><span class="damaged " style="font-size: 30px;">Damages covered</span></h1>
       </div>
 
       <img
@@ -581,7 +585,7 @@
         src="/static/claimzy_in/img/mobile-ios-full (1).png"
       />
       <div class="centered headings m-auto">
-        <div id="name" class="mt-5 text1">
+        <div id="name" class="mt-5 text1 fontLato">
           <br />
           <br /><br />Liquid/Water <br /><br /><br />
           Damage
@@ -619,7 +623,7 @@
       class="p-3"
       style="background-image: linear-gradient(180deg, #fbd213, #ef6c00)"
     >
-      <h2 class="action-text text-center" style="color: #000">REGISTER NOW</h2>
+      <h2 class="action-text text-center fontLato" style="color: #000">REGISTER NOW</h2>
 
       <div class="row row1 text-center">
         <div class="col-sm">
@@ -678,7 +682,7 @@
   <div class="d-none">
     <div class="container my-0 p-0">
       <div class="text-center mt-5 mb-3 text-light py-4">
-        <h3 class="captionsBlack"><span>Mobile Brands we Service</span></h3>
+        <h3 class="captionsBlack fontLato"><span>Mobile Brands we Service</span></h3>
       </div>
 
       <div class="slides mx-auto" style="width: 100%">
@@ -757,7 +761,7 @@
       <div class="col-sm-12">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <div class="text-center mt-5 mb-3 text-light py-4">
-            <h3 class="captionsBlack"><span>Customer Testimonials</span></h3>
+            <h3 class="captionsBlack fontLato"><span>Customer Testimonials</span></h3>
           </div>
           <!-- Carousel indicators -->
           <ol class="carousel-indicators">
@@ -770,7 +774,7 @@
             <div class="item carousel-item active">
               <div class="row">
                 <div class="col-sm-6">
-                  <div class="testimonial">
+                  <div class="testimonial fontLato">
                     <p>
                       Damaged my mobile's Camera while shooting a video for
                       TikTok, Claimzy's Insurance plan came in as a help. No
@@ -781,8 +785,8 @@
                   <div class="media">
                     <div class="media-body">
                       <div class="overview">
-                        <div class="name"><b>Pranita Bichkar</b></div>
-                        <div class="details">Housewife / Pune</div>
+                        <div class="name fontLato"><b>Pranita Bichkar</b></div>
+                        <div class="details fontLato">Housewife / Pune</div>
                         <div class="star-rating">
                           <ul class="list-inline">
                             <li class="list-inline-item">
@@ -807,7 +811,7 @@
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <div class="testimonial">
+                  <div class="testimonial fontLato">
                     <p>
                       Claimzy provided me with the service they assured while I
                       opted In. Loved the service and prices are user friendly.
@@ -816,8 +820,8 @@
                   <div class="media">
                     <div class="media-body">
                       <div class="overview">
-                        <div class="name"><b>Nishant Narwade</b></div>
-                        <div class="details">College Student / Pune</div>
+                        <div class="name fontLato"><b>Nishant Narwade</b></div>
+                        <div class="details fontLato">College Student / Pune</div>
                         <div class="star-rating">
                           <ul class="list-inline">
                             <li class="list-inline-item">
@@ -846,7 +850,7 @@
             <div class="item carousel-item">
               <div class="row">
                 <div class="col-sm-6">
-                  <div class="testimonial">
+                  <div class="testimonial fontLato">
                     <p>
                       Claimzy's support was speedy and satisfying. Required
                       Service on Emergency situations was delivered when I
@@ -857,8 +861,8 @@
                   <div class="media">
                     <div class="media-body">
                       <div class="overview">
-                        <div class="name"><b>Vaibhav Pawar</b></div>
-                        <div class="details">Business Owner / Pune</div>
+                        <div class="name fontLato"><b>Vaibhav Pawar</b></div>
+                        <div class="details fontLato">Business Owner / Pune</div>
                         <div class="star-rating">
                           <ul class="list-inline">
                             <li class="list-inline-item">
@@ -883,7 +887,7 @@
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <div class="testimonial">
+                  <div class="testimonial fontLato">
                     <p>
                       I broke my glass and Claimzy's Insurance plan was the best
                       decision I made when I bought my new Phone.
@@ -892,8 +896,8 @@
                   <div class="media">
                     <div class="media-body">
                       <div class="overview">
-                        <div class="name"><b>Sanjiv Kumar</b></div>
-                        <div class="details">Modern SteelWorks / Pune</div>
+                        <div class="name fontLato"><b>Sanjiv Kumar</b></div>
+                        <div class="details fontLato">Modern SteelWorks / Pune</div>
                         <div class="star-rating">
                           <ul class="list-inline">
                             <li class="list-inline-item">
@@ -946,6 +950,7 @@
 </script>
 <script>
   var toggle = false;
+  $("html"). on("contextmenu",function(e){ return false; }); 
   $(".btn-buy").click(function () {
     if (!toggle) {
       toggle = true;

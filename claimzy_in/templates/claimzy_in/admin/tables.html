@@ -47,6 +47,8 @@
                       value="{{usercust.id}}"
                       onclick='deleteFn("{{usercust.id}}")'
                       class="btn delete-btn btn-success text-uppercase"
+                      role="button"
+                      aria-pressed="false"
                       >Delete</a
                     >
                     {% endif %}
@@ -70,7 +72,7 @@
             <span
               ><a
                 href="{% url 'device-register' %}"
-                class="button float-right btn btn-success m-auto"
+                class="button float-right btn btn-success m-auto deskhide"
                 style="
                   font-size: 80%;
                   border-radius: 5rem;
@@ -86,8 +88,8 @@
           <p class="category"></p>
         </div>
         <div class="card-body">
-          <div class="table-responsive" id="claims-table2">
-            <table class="table">
+          <div class="table-responsive" >
+            <table class="table" id="claims-table4">
               <thead class="text-primary">
                 <th class="text-left">Device ID</th>
                 <th class="text-center">Plan</th>
@@ -131,7 +133,7 @@
             <span
               ><a
                 href="{% url 'device-register' %}"
-                class="button float-right btn btn-success m-auto"
+                class="button float-right btn btn-success m-auto deskhide"
                 style="
                   font-size: 80%;
                   border-radius: 5rem;
@@ -315,7 +317,10 @@
 hideCloseButton();
 
   function deleteFn(e) {
-    $.ajax({
+    let isBoss = confirm("Are You Sure?");
+    
+    if(isBoss){
+      $.ajax({
       type: "GET",
       url: '{% url "customer-delete" %}',
       data: {
@@ -329,6 +334,8 @@ hideCloseButton();
         alert("User Deletion Failed");
       },
     });
+    }
+   
   }
 
   $(".claim-btn").click(function () {
